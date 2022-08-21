@@ -8,7 +8,7 @@ function load(word) {
     window.word = word;
 
     const italian = word.It.split(' ').map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(' ');
-    
+
     // Title
     centre.insertAdjacentHTML("beforeend", `<h1>${italian}</h1>`);
 
@@ -32,6 +32,7 @@ function load(word) {
     if (word.Class.includes("Verb")) {
         verbGetStem(word);
         auxVerbGetStem(word);
+        if (word.Verb.ContractedInfin) contractedVerbGetStem(word);
 
         sect = document.createElement('section');
         div.appendChild(sect);
@@ -41,16 +42,16 @@ function load(word) {
         const irregular = word.Class.includes("IrregVerb");
         p.insertAdjacentHTML("beforeend", `<span><em>${word.It[0].toUpperCase() + word.It.slice(1)}</em> is ${irregular ? "an <strong>irregular</strong>" : "a <strong>regular</strong>"} verb.</span>`);
         if (word.Verb.ContractedInfin) p.insertAdjacentHTML("beforeend", `<br><span>It has a contracted infinitive, which is <em>${word.Verb.ContractedInfin}</em>.</span>`);
-        if (!irregular) p.insertAdjacentHTML("beforeend", `<br><span>It's stem is <strong>${word.Verb.Stem}</strong>, and it is a <strong>-${word.Verb.InfEnding}</strong> verb.</span>`);
+        if (!irregular) p.insertAdjacentHTML("beforeend", `<br><span>It's stem is <strong>${word.Verb.Stem}-</strong>, and it is a <strong>-${word.Verb.InfEnding}</strong> verb.</span>`);
         p.insertAdjacentHTML("beforeend", `<br><span>It's auxiliary verb is <em>${word.AuxVerb.It}</em>.</span>`);
 
-        const presentParticiple = word.Verb.PresentParticiple || verbGeneratePresentParticiple(word.Verb.ContractedInfin || word.Verb.Stem, word.Verb.InfEnding, true);
-        if (!word.Verb.PresentParticiple) word.Verb.PresentParticiple = verbGeneratePresentParticiple(word.Verb.ContractedInfin || word.Verb.Stem, word.Verb.InfEnding);
-        const pastParticiple = word.Verb.PastParticiple || verbGeneratePastParticiple(word.Verb.ContractedInfin || word.Verb.Stem, word.Verb.InfEnding, true);
-        if (!word.Verb.PastParticiple) word.Verb.PastParticiple = verbGeneratePastParticiple(word.Verb.ContractedInfin || word.Verb.Stem, word.Verb.InfEnding);
+        const presentParticiple = word.Verb.PresentParticiple || verbGeneratePresentParticiple(word.Verb.ContractedStem || word.Verb.Stem, word.Verb.ContractedInfEnding || word.Verb.InfEnding, true);
+        if (!word.Verb.PresentParticiple) word.Verb.PresentParticiple = verbGeneratePresentParticiple(word.Verb.ContractedStem || word.Verb.Stem, word.Verb.ContractedInfEnding || word.Verb.InfEnding);
+        const pastParticiple = word.Verb.PastParticiple || verbGeneratePastParticiple(word.Verb.ContractedStem || word.Verb.Stem, word.Verb.ContractedInfEnding || word.Verb.InfEnding, true);
+        if (!word.Verb.PastParticiple) word.Verb.PastParticiple = verbGeneratePastParticiple(word.Verb.ContractedStem || word.Verb.Stem, word.Verb.ContractedInfEnding || word.Verb.InfEnding);
         const gerund = word.Verb.Gerund || verbGenerateGerund(word.Verb.PresentParticiple, true);
         if (!word.Verb.Gerund) word.Verb.Gerund = verbGenerateGerund(word.Verb.PresentParticiple);
-        const futureStem = verbGenerateFutureStem(word.It, irregular);
+        const futureStem = word.Verb.FutureStem || verbGenerateFutureStem(word.It, false);
 
         sect.insertAdjacentHTML("beforeend", "<h2>Nominal Forms</h2>");
         p = document.createElement("p");
@@ -65,7 +66,7 @@ function load(word) {
         div.appendChild(sect);
         sect.insertAdjacentHTML("beforeend", "<h2>The Present - <em>Il Presente</em></h2>");
         sect.insertAdjacentHTML("beforeend", `<p>Present participle - <em>${presentParticiple}</em></p>`);
-        
+
         let presentHTML;
         if (word.Verb.Present) {
             let ar = word.Verb.Present.split(",").map(x => x.trim()).filter(x => x.length > 0);
@@ -75,7 +76,7 @@ function load(word) {
                 presentHTML = ar.map(x => "<strong>" + x + "</strong>");
             }
         } else {
-            presentHTML = verbGeneratePresent(word.Verb.Stem, word.Verb.InfEnding, "", true);
+            presentHTML = verbGeneratePresent(word.Verb.ContractedStem || word.Verb.Stem, word.Verb.ContractedInfEnding || word.Verb.InfEnding, "", true);
         }
         let table = document.createElement("table");
         sect.appendChild(table);
@@ -86,7 +87,7 @@ function load(word) {
             tbody.insertAdjacentHTML("beforeend", `<tr><td>${pronoun}</td><td>${presentHTML[i]}</td></tr>`);
         });
         sect.insertAdjacentHTML("beforeend", "<hr>");
-        
+
         // Past
         sect = document.createElement('section');
         div.appendChild(sect);
@@ -111,7 +112,7 @@ function load(word) {
         if (word.Verb.Imperfect) {
             imperfectHTML = word.Verb.Imperfect.split(",").map(x => "<strong>" + x.trim() + "</strong>");
         } else {
-            imperfectHTML = verbGenerateImperfect(word.Verb.ContractedInfin || word.Verb.Stem, word.Verb.InfEnding, true);
+            imperfectHTML = verbGenerateImperfect(word.Verb.ContractedStem || word.Verb.Stem, word.Verb.ContractedInfEnding || word.Verb.InfEnding, true);
         }
         table = document.createElement("table");
         sect.appendChild(table);
@@ -134,7 +135,7 @@ function load(word) {
             tbody.insertAdjacentHTML("beforeend", `<tr><td>${pronoun}</td><td>${pastPerfectHTML[i]}</td></tr>`);
         });
         sect.insertAdjacentHTML("beforeend", "<hr>");
-        
+
         // Future
         sect = document.createElement('section');
         div.appendChild(sect);
@@ -177,7 +178,7 @@ function load(word) {
         pronouns.forEach((pronoun, i) => {
             tbody.insertAdjacentHTML("beforeend", `<tr><td>${pronoun}</td><td>${conditionalHTML[i]}</td></tr>`);
         });
-        
+
         sect.insertAdjacentHTML("beforeend", "<h3>The Past Conditional - <em>Il condizionale passato</em></h3>");
         sect.insertAdjacentHTML("beforeend", `<p>Formation: auxiliary verb in the Conditional + past participle - <strong>${word.AuxVerb.It}</strong> + <strong>${word.Verb.PastParticiple}</strong></p>`);
         const conditionalPastHTML = verbGenerateConditionalPast(pastParticiple, word.AuxVerb.It, true);

@@ -1,5 +1,6 @@
 const inputIt = document.getElementById("inp-it");
 const inputEn = document.getElementById("inp-en");
+const selectGender = document.getElementById("sel-gender");
 const selectClasses = document.getElementById("sel-class");
 const spanClasses = document.getElementById("span-class");
 const selectCategories = document.getElementById("sel-cats");
@@ -38,6 +39,11 @@ inputIt.addEventListener("change", () => {
 inputEn.addEventListener("change", () => {
     if (!ok) return console.warn("Cannot update; OK=false");
     socket.emit("update-word", { ID, En: inputEn.value });
+});
+
+selectGender.addEventListener("change", () => {
+    if (!ok) return console.warn("Cannot update; OK=false");
+    socket.emit("update-word", { ID, Gender: selectGender.value });
 });
 
 selectClasses.addEventListener("change", () => {
@@ -131,12 +137,13 @@ socket.on("get-word-raw", obj => {
 
         inputIt.value = obj.It || "";
         inputEn.value = obj.En || "";
+        selectGender.value = obj.Gender || "";
         textareaComment.value = obj.Comment || "";
-    
+
         classes.clear();
         obj.Class.trim().split(",").map(x => x.trim()).filter(x => x.length > 0).forEach(id => classes.add(+id));
         showWordClasses();
-    
+
         categories.clear();
         obj.Cat.trim().split(",").map(x => x.trim()).filter(x => x.length > 0).forEach(id => categories.add(+id));
         showWordCategories();

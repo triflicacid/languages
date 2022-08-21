@@ -5,25 +5,25 @@ const { db } = require('./database.js');
 const { setupSocket } = require('./socket.js');
 
 (async function main() {
-    const PORT = 3000;
+  const PORT = process.argv.length > 2 ? +process.argv[2] : 3000;
 
-    await db.open();
-    console.log(`[database]: Opened connection: ${db.path}`);
-    
-    const app = express();
-    
-    app.use(express.urlencoded({ extended: true })); // Read form data
-    app.use(express.static('./public/')); // Static files
-    
-    const server = app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
-    const io = new Server(server);
+  await db.open();
+  console.log(`[database]: Opened connection: ${db.path}`);
 
-    io.on("connection", socket => {
-        console.log(`[NEW SOCKET CONNECTION] ${socket.id}`);
-        setupSocket(socket);
-    });
+  const app = express();
 
-    // Handle exits - ensure graceful shutdown
+  app.use(express.urlencoded({ extended: true })); // Read form data
+  app.use(express.static('./public/')); // Static files
+
+  const server = app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+  const io = new Server(server);
+
+  io.on("connection", socket => {
+    console.log(`[NEW SOCKET CONNECTION] ${socket.id}`);
+    setupSocket(socket);
+  });
+
+  // Handle exits - ensure graceful shutdown
   const exitHandler = terminate(server, {
     coredump: false,
     timeout: 500,

@@ -6,9 +6,17 @@ function verbGetStem(word) {
     word.Verb.InfEnding = ending;
 }
 
+/** Create properties `word.Verb.ContractedStem` and `word.Verb.ContractedInfEnding` */
+function contractedVerbGetStem(word) {
+    let inf = word.Verb.ContractedInfin, stem, ending = inf.slice(inf.length - 3);
+    if (ending === "ere" || ending === "are" || ending === "ire") stem = inf.slice(0, inf.length - 3);
+    word.Verb.ContractedStem = stem;
+    word.Verb.ContractedInfEnding = ending;
+}
+
 /** Create properties `word.AuxVerb.Stem` and `word.AuxVerb.InfEnding` */
 function auxVerbGetStem(word) {
-    let aux = word.Verb.PastVerb, stem, ending = aux.slice(aux.length - 3);
+    let aux = word.AuxVerb.It, stem, ending = aux.slice(aux.length - 3);
     if (ending === "ere" || ending === "are" || ending === "ire") stem = aux.slice(0, word.It.length - 3);
     word.AuxVerb.Stem = stem;
     word.AuxVerb.InfEnding = ending;
@@ -54,7 +62,7 @@ function verbGeneratePastParticiple(stem, ending, htmlStyle = false) {
 /** Generate Present Perfect from (1) verb to generate Past Perfect for, (2) auxiliary verb. Return array */
 function verbGeneratePresentPerfect(verb, aux, htmlStyle = false) {
     let pp = aux.Present.split(",").map((x, i) => (htmlStyle ? "<strong>" + x.trim() + "</strong>" : x.trim()) + " " + verb.PastParticiple);
-    if (verb.PastVerb === "essere") {
+    if (aux.It === "essere") {
         pp = pp.map((s, i) => {
             if (i > 2) {
                 let a = '';
@@ -73,7 +81,7 @@ function verbGeneratePresentPerfect(verb, aux, htmlStyle = false) {
 
 /** Generate Past Imperfect */
 function verbGenerateImperfect(stem, ending, htmlStyle = false) {
-     let endings, insert;
+    let endings, insert;
     if (ending === 'are' || ending === 'ere' || ending === 'ire') {
         endings = ['vo', 'vi', 'va', 'vamo', 'vate', 'vano'];
         insert = ending[ending.length - 3];
@@ -88,8 +96,8 @@ function verbGenerateImperfect(stem, ending, htmlStyle = false) {
 /** Generate past perfect given (1) past participle, (2) the auxiliary verb information */
 function verbGeneratePastPerfect(pastParticiple, aux, htmlStyle = false) {
     const imperfect = aux.Imperfect ?
-            aux.Imperfect.split(",").map(x => x.trim()) :
-            verbGenerateImperfect(aux.ContractedInfin || aux.Stem, aux.InfEnding);
+        aux.Imperfect.split(",").map(x => x.trim()) :
+        verbGenerateImperfect(aux.ContractedInfin || aux.Stem, aux.InfEnding);
     return htmlStyle ?
         imperfect.map(x => "<strong>" + x + "</strong> " + pastParticiple) :
         imperfect.map(x => x + " " + pastParticiple);
@@ -99,7 +107,7 @@ function verbGeneratePastPerfect(pastParticiple, aux, htmlStyle = false) {
 function verbGenerateFutureStem(verb, isIrregular = false) {
     if (verb === "essere") return "sar";
     if (verb === "stare" || verb === "dare" || verb === "fare") return verb.slice(0, verb.length - 1);
-    
+
     let stem = verb;
     // End in -are -> -ere?
     if (verb.slice(verb.length - 3) === "are") stem = verb.slice(0, verb.length - 3) + "are";
@@ -144,7 +152,7 @@ function verbGenerateConditionalPast(pastParticiple, aux, htmlStyle = false) {
 
 /** Create Gerund from a present participle */
 function verbGenerateGerund(presentParticiple, htmlStyle = false) {
-    return htmlStyle ? 
+    return htmlStyle ?
         presentParticiple.slice(0, presentParticiple.length - 4) + "<strong>" + presentParticiple.slice(presentParticiple.length - 4, presentParticiple.length - 2) + "do</strong>" :
         presentParticiple.slice(0, presentParticiple.length - 2) + "do";
 }
