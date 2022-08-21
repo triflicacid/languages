@@ -122,9 +122,33 @@ async function getIrregularVerbInfo(ID) {
     return await db.get("SELECT * FROM IrregularVerbs WHERE VocabID = ?", [ID]);
 }
 
+/** Create an entry for an IrregularVerb with the given ID and provided data */
+async function createIrregularVerb(ID, data) {
+    await db.run("INSERT INTO IrregularVerbs (VocabID) VALUES (?)", [ID]);
+    data.VocabID = ID;
+    await updateIrregularVerb(data);
+}
+
+/** Update the record of an IrregularVerb (data must contain at least `VocabID`) */
+async function updateIrregularVerb(data) {
+    const sql = [], params = [], names = ["Present", "ContractedInfin", "PresentParticiple", "PastParticiple", "AuxVerb", "Imperfect", "AbsPast", "Imperative", "Gerund"];
+    for (const name of names) {
+        if (data[name] !== undefined) {
+            sql.push(`${name} = ?`);
+            params.push(data[name]);
+        }
+    }
+    if (sql.length > 0) {
+        const query = sql.join(", ");
+        params.push(data.VocabID);
+        await db.run(`UPDATE IrregularVerbs SET ${query} WHERE VocabID = ?`, params);
+    }
+}
+
 module.exports = {
     db,
     getWordClasses, updateWordClass, deleteWordClass, createWordClass,
     getWordCategories, updateWordCategory, deleteWordCategory, createWordCategory,
-    getWords, insertIntoVocab, getWordRaw, updateWord, getIrregularVerbInfo,
+    getWords, insertIntoVocab, getWordRaw, updateWord,
+    getIrregularVerbInfo, createIrregularVerb, updateIrregularVerb,
 };

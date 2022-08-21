@@ -42,6 +42,8 @@ CREATE TABLE IrregularVerbs (
     Present text,
     -- Contracted infinitive?
     ContractedInfin text,
+    -- Stem for the future tenses
+    FutureStem text,
     -- Present Participle
     PresentParticiple text,
     -- Past participle
