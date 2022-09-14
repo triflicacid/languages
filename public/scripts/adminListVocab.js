@@ -81,13 +81,14 @@ function populateTBody(words) {
     }
 }
 
-function searchWords(It, En, Gender, Class, Cat) {
+function searchWords(It, En, ItPlural, Gender, Class, Cat) {
     let filtered = words.filter(word => {
         return (It ? word.It.indexOf(It) !== -1 : true) &&
             (En ? word.En.indexOf(En) !== -1 : true) &&
+            (ItPlural ? (word.ItPlural || "").indexOf(ItPlural) !== -1 : true) &&
             (Gender ? word.Gender === Gender : true) &&
-            (Class ? word.Class.indexOf(Class) !== -1 : true) &&
-            (Cat ? word.Cat.indexOf(Cat) !== -1 : true);
+            (Class ? (word.Class || "").indexOf(Class) !== -1 : true) &&
+            (Cat ? (word.Cat || "").indexOf(Cat) !== -1 : true);
     });
     populateTBody(filtered);
 }
@@ -115,7 +116,7 @@ btnNew.addEventListener("click", () => {
 
     const tr = document.createElement("tr");
     thead.appendChild(tr);
-    for (let i = 0; i < 4; i++) addCol();
+    for (let i = 0; i < 6; i++) addCol();
 })();
 
 const socket = io();
