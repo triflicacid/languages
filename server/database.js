@@ -12,8 +12,8 @@ async function getWordCategories() {
 }
 
 /** Create new vocab entry: It: string, En: string[], Class: number[], Cat: number[], Comment: string. Returns ID, */
-async function insertIntoVocab(It, En, Gender, Class = [], Cat = [], Comment = "") {
-    return await db.run("INSERT INTO Vocab (It, En, Gender, Class, Cat, Comment) VALUES (?, ?, ?, ?, ?, ?)", [It, En.join(","), Gender || "", Class.join(","), Cat.join(","), Comment]);
+async function insertIntoVocab(It, En, ItPlural, Gender, Class = [], Cat = [], Comment = "") {
+    return await db.run("INSERT INTO Vocab (It, En, ItPlural, Gender, Class, Cat, Comment) VALUES (?, ?, ?, ?, ?, ?, ?)", [It, En.join(","), ItPlural, Gender || "", Class.join(","), Cat.join(","), Comment]);
 }
 
 /** Update a Word Class record. If provided values are undefined, do not update that field. */
@@ -90,6 +90,10 @@ async function updateWord(record) {
     if (record.En != undefined) {
         queries.push("En = ?");
         params.push(record.En);
+    }
+    if (record.ItPlural != undefined) {
+        queries.push("ItPlural = ?");
+        params.push(record.ItPlural);
     }
     if (record.Gender != undefined) {
         queries.push("Gender = ?");

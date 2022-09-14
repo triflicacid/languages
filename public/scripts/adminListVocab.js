@@ -31,6 +31,16 @@ function populateTBody(words) {
         tr.appendChild(td);
 
         td = document.createElement("td");
+        const InputItPl = document.createElement("input");
+        InputItPl.value = word.ItPlural;
+        InputItPl.addEventListener("change", () => {
+            word.ItPlural = InputItPl.value;
+            socket.emit("update-word", { ID: word.ID, ItPlural: word.ItPlural });
+        });
+        td.appendChild(InputItPl);
+        tr.appendChild(td);
+
+        td = document.createElement("td");
         const inputGender = document.createElement("input");
         inputGender.value = word.Gender;
         inputGender.addEventListener("change", () => {
@@ -86,7 +96,7 @@ btnNew.addEventListener("click", () => {
     window.location.href = "./newVocab.html";
 });
 
-(function() {
+(function () {
     function search() {
         searchWords(...inputs.map(e => e.value));
     }

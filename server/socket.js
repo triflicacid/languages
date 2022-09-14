@@ -58,7 +58,7 @@ function setupSocket(socket) {
         if (data.It.trim().length === 0 || data.En.length === 0 || data.En[0].trim().length === 0) {
             socket.emit("alert", "Missing required information.");
         } else {
-            const id = await db.insertIntoVocab(data.It, data.En, data.Gender, data.Class, data.Cat, data.Comment);
+            const id = await db.insertIntoVocab(data.It, data.En, data.ItPlural, data.Gender, data.Class, data.Cat, data.Comment);
             if (data.IrregVerb !== undefined) {
                 await db.createIrregularVerb(id, data.IrregVerb);
             }

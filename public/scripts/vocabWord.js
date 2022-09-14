@@ -7,10 +7,11 @@ function load(word) {
     console.log(word);
     window.word = word;
 
-    const italian = word.It.split(' ').map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    const italian = word.It; //word.It.split(' ').map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(' ');
 
     // Title
     centre.insertAdjacentHTML("beforeend", `<h1>${italian}</h1>`);
+    if (word.ItPlural) centre.insertAdjacentHTML("beforeend", `<p><em>Pl.</em> ${word.ItPlural}</p>`);
 
     // Breadcrumbs
     breadcrumbs.insertAdjacentHTML("beforeend", `&gt; <a>${italian}</a>`);

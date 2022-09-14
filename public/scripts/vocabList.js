@@ -27,6 +27,11 @@ function populateTBody(words) {
 
         td = document.createElement("td");
         if (hiddenRows.includes(2)) td.classList.add("hide");
+        if (word.ItPlural) td.insertAdjacentHTML("beforeend", word.ItPlural);
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        if (hiddenRows.includes(3)) td.classList.add("hide");
         let gender = "";
         if (word.Gender === "M") gender = "Masculine";
         if (word.Gender === "F") gender = "Feminine";
@@ -34,19 +39,18 @@ function populateTBody(words) {
         tr.appendChild(td);
 
         td = document.createElement("td");
-        if (hiddenRows.includes(3)) td.classList.add("hide");
+        if (hiddenRows.includes(4)) td.classList.add("hide");
         const classNames = word.Class.map(c => wordClasses.find(C => C.ID === c).Name);
         td.insertAdjacentHTML("beforeend", classNames.map(n => "<em>" + n + "</em>").join(", "));
         tr.appendChild(td);
 
         td = document.createElement("td");
-        if (hiddenRows.includes(4)) td.classList.add("hide");
+        if (hiddenRows.includes(5)) td.classList.add("hide");
         const catNames = word.Cat.map(c => wordCategories.find(C => C.ID === c).Name);
         td.insertAdjacentHTML("beforeend", catNames.map((n, i) => `<em>${n}</em>`).join(", "));
         tr.appendChild(td);
 
         td = document.createElement("td");
-        // if (hiddenRows.includes(5)) td.classList.add("hide");
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.addEventListener("change", () => {
@@ -116,6 +120,9 @@ function loadTHead() {
     inputEn.placeholder = "Search";
     inputEn.addEventListener("input", search);
     td.appendChild(inputEn);
+    tr.appendChild(td);
+
+    td = document.createElement("td");
     tr.appendChild(td);
 
     td = document.createElement("td");

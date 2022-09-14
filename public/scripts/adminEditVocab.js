@@ -1,4 +1,5 @@
 const inputIt = document.getElementById("inp-it");
+const inputItPlural = document.getElementById("inp-it-pl");
 const inputEn = document.getElementById("inp-en");
 const selectGender = document.getElementById("sel-gender");
 const selectClasses = document.getElementById("sel-class");
@@ -33,12 +34,17 @@ socket.on("get-word-categories", array => {
 
 inputIt.addEventListener("change", () => {
     if (!ok) return console.warn("Cannot update; OK=false");
-    socket.emit("update-word", { ID, It: inputIt.value });
+    socket.emit("update-word", { ID, It: inputIt.value.trim() });
+});
+
+inputItPlural.addEventListener("change", () => {
+    if (!ok) return console.warn("Cannot update; OK=false");
+    socket.emit("update-word", { ID, ItPlural: inputItPlural.value.trim() });
 });
 
 inputEn.addEventListener("change", () => {
     if (!ok) return console.warn("Cannot update; OK=false");
-    socket.emit("update-word", { ID, En: inputEn.value });
+    socket.emit("update-word", { ID, En: inputEn.value.trim() });
 });
 
 selectGender.addEventListener("change", () => {
@@ -117,6 +123,7 @@ function updateWordCategories() {
 
 function clear() {
     inputIt.value = "";
+    inputItPlural.value = "";
     inputEn.value = "";
     spanClasses.innerHTML = "";
     spanCategories.innerHTML = "";
@@ -136,6 +143,7 @@ socket.on("get-word-raw", obj => {
         ok = true;
 
         inputIt.value = obj.It || "";
+        inputItPlural.value = obj.ItPlural || "";
         inputEn.value = obj.En || "";
         selectGender.value = obj.Gender || "";
         textareaComment.value = obj.Comment || "";

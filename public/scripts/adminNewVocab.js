@@ -1,4 +1,5 @@
 const inputIt = document.getElementById("inp-it");
+const inputItPlural = document.getElementById("inp-it-pl");
 const inputEn = document.getElementById("inp-en");
 const selectGender = document.getElementById("sel-gender");
 const selectClasses = document.getElementById("sel-class");
@@ -97,6 +98,7 @@ function showWordCategories() {
 function createWord() {
     const data = {};
     data.It = inputIt.value.trim();
+    data.ItPlural = inputItPlural.value.trim();
     data.En = inputEn.value.trim().split(",").map(x => x.trim());
     data.Gender = selectGender.value;
     data.Class = Array.from(classes.values());
@@ -124,6 +126,7 @@ socket.on("alert", text => {
 socket.on("create-word", id => {
     alert(`Created word. ID: ${id}`);
     inputIt.value = "";
+    inputItPlural.value = "";
     inputEn.value = "";
     selectGender.value = "";
     textareaComment.value = "";
