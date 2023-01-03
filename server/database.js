@@ -132,10 +132,15 @@ async function getIrregularVerbInfo(ID) {
 }
 
 /** Create an entry for an IrregularVerb with the given ID and provided data */
-async function createIrregularVerb(ID, data) {
+async function createIrregularVerb(ID, data = {}) {
     await db.run("INSERT INTO IrregularVerbs (VocabID) VALUES (?)", [ID]);
     data.VocabID = ID;
     await updateIrregularVerb(data);
+}
+
+/** Delete an entry for an IrregularVerb given the VocabID */
+async function deleteIrregularVerb(ID) {
+    await db.run("DELETE FROM IrregularVerbs WHERE VocabID = ?", [ID]);
 }
 
 /** Update the record of an IrregularVerb (data must contain at least `VocabID`) */
@@ -159,5 +164,5 @@ module.exports = {
     getWordClasses, updateWordClass, deleteWordClass, createWordClass,
     getWordCategories, updateWordCategory, deleteWordCategory, createWordCategory,
     getWords, getWordByItalian, insertIntoVocab, getWordRaw, updateWord,
-    getIrregularVerbInfo, createIrregularVerb, updateIrregularVerb,
+    getIrregularVerbInfo, createIrregularVerb, updateIrregularVerb, deleteIrregularVerb,
 };

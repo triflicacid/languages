@@ -15,7 +15,7 @@ const { setupSocket } = require('./socket.js');
   app.use(express.urlencoded({ extended: true })); // Read form data
   app.use(express.static('./public/')); // Static files
 
-  const server = app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+  const server = app.listen(PORT, () => console.log(`Server listening on http://localhost:${PORT}`));
   const io = new Server(server);
 
   io.on("connection", socket => {

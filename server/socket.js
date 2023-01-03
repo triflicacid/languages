@@ -53,6 +53,16 @@ function setupSocket(socket) {
         socket.emit("create-word-cat", { ID, Name, Desc });
     });
 
+    // Delete IrregVerb information
+    socket.on("delete-irreg-verb-info", async ID => {
+        await db.deleteIrregularVerb(ID);
+    });
+
+    // Create IrregVerb information
+    socket.on("create-irreg-verb-info", async ({ ID, data }) => {
+        await db.createIrregularVerb(ID, data);
+    });
+
     // Italian: check if word entry exists
     socket.on("check-it-exists", async (it) => {
         const exist = await db.getWordByItalian(it);
@@ -82,11 +92,37 @@ function setupSocket(socket) {
     // Update a Vocab record (data must provide at least the ID)
     socket.on("update-word", async data => {
         await db.updateWord(data);
+        if (data.Verb) { // Update Verb details?
+            await db.updateIrregularVerb({ VocabID: data.ID, ...data.Verb });
+        }
     });
 
     // Get raw record from Vocab table
-    socket.on("get-word-raw", async ID => {
-        const word = await db.getWordRaw(ID);
+    socket.on("get-word-raw", async ({ query, verb }) => {
+        let word;
+        if (!isNaN(+query)) { // Valid ID?
+            word = await db.getWordRaw(+query);
+        } else {
+            word = await db.getWordByItalian(query.trim());
+        }
+        // Populate potential verb information?
+        if (word && verb) {
+            const wordClasses = await db.getWordClasses();
+            const classes = word.Class ? word.Class.split(',').map(k => wordClasses.find(wc => wc.ID == k).Name) : [];
+
+            if (classes.includes("Verb")) {
+                let verb = classes.includes("IrregVerb") ? await db.getIrregularVerbInfo(word.ID) : undefined;
+                if (!verb) {
+                    verb = (await db.db.all("PRAGMA table_info(IrregularVerbs)")).map(o => o.name).reduce((o, name) => {
+                        o[name] = undefined;
+                        return o;
+                    }, {});
+                }
+
+                if (!verb.AuxVerb) verb.AuxVerb = "avere";
+                word.Verb = verb;
+            }
+        }
         socket.emit("get-word-raw", word);
     });
 
@@ -113,12 +149,13 @@ function setupSocket(socket) {
         word.Cat = word.Cat ? word.Cat.split(',').map(k => wordCategories.find(wc => wc.ID == k).Name) : [];
 
         if (word.Class.includes("Verb")) {
-            const verb = word.Class.includes("IrregVerb") ?
-                await db.getIrregularVerbInfo(id) :
-                (await db.db.all("PRAGMA table_info(IrregularVerbs)")).map(o => o.name).reduce((o, name) => {
+            let verb = word.Class.includes("IrregVerb") ? await db.getIrregularVerbInfo(id) : undefined;
+            if (!verb) {
+                verb = (await db.db.all("PRAGMA table_info(IrregularVerbs)")).map(o => o.name).reduce((o, name) => {
                     o[name] = undefined;
                     return o;
                 }, {});
+            }
             word.Verb = verb;
 
             if (!verb.AuxVerb) verb.AuxVerb = "avere";

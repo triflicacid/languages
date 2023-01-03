@@ -7,6 +7,9 @@ const spanClasses = document.getElementById("span-class");
 const selectCategories = document.getElementById("sel-cats");
 const spanCategories = document.getElementById("span-cats");
 const textareaComment = document.getElementById("txt-comment");
+const divIrregular = document.getElementById("div-irregular-verb");
+divIrregular.setAttribute("hidden", "hidden");
+var irregVerbID;
 const classes = new Set(), categories = new Set();
 var wordClasses, wordCategories;
 
@@ -20,6 +23,7 @@ socket.on("get-word-classes", array => {
     wordClasses = array;
     selectClasses.insertAdjacentHTML("beforeend", `<option value='NIL' selected disabled>-</option>`);
     for (const klass of array) {
+        if (klass.Name === "IrregVerb") irregVerbID = +klass.ID;
         selectClasses.insertAdjacentHTML("beforeend", `<option value='${klass.ID}'>${klass.Name}</option>`);
     }
 });
@@ -56,6 +60,10 @@ selectClasses.addEventListener("change", () => {
     const id = +selectClasses.value;
     if (!isNaN(id)) {
         classes.add(id);
+        if (id === irregVerbID) {
+            socket.emit("create-irreg-verb-info", ID);
+            divIrregular.removeAttribute("hidden");
+        }
         updateWordClasses();
         showWordClasses();
     }
@@ -86,6 +94,11 @@ function showWordClasses() {
         del.innerText = 'X';
         del.addEventListener("click", () => {
             classes.delete(id);
+            if (id === irregVerbID) {
+                divIrregular.setAttribute("hidden", "hidden");
+                socket.emit("delete-irreg-verb-info", ID);
+                for (const el of document.querySelectorAll(".inp-iv")) el.value = '';
+            }
             updateWordClasses();
             showWordClasses();
         });
@@ -130,6 +143,9 @@ function clear() {
     classes.clear();
     categories.clear();
     textareaComment.value = "";
+    const elements = document.querySelectorAll(".inp-iv");
+    for (let element of elements) element.value = "";
+    divIrregular.setAttribute("hidden", "hidden");
 }
 
 socket.on("alert", text => {
@@ -138,8 +154,9 @@ socket.on("alert", text => {
 socket.on("get-word-raw", obj => {
     if (obj == null) {
         ok = false;
-        alert(`no word with ID=${ID}.`);
+        alert(`No word found for the given query -- '${query}'.`);
     } else {
+        ID = obj.ID;
         ok = true;
 
         inputIt.value = obj.It || "";
@@ -147,10 +164,23 @@ socket.on("get-word-raw", obj => {
         inputEn.value = obj.En || "";
         selectGender.value = obj.Gender || "";
         textareaComment.value = obj.Comment || "";
+        obj.Class = obj.Class || "";
+        obj.Cat = obj.Cat || "";
 
         classes.clear();
-        obj.Class.trim().split(",").map(x => x.trim()).filter(x => x.length > 0).forEach(id => classes.add(+id));
+        const classList = obj.Class.trim().split(",").map(x => x.trim()).filter(x => x.length > 0).map(n => +n);
+        classList.forEach(id => classes.add(id));
         showWordClasses();
+        const isIrregular = classList.includes(irregVerbID);
+        if (isIrregular) { // IRREGULAR VERB
+            divIrregular.removeAttribute("hidden");
+        }
+        const elements = document.querySelectorAll(".inp-iv");
+        for (let element of elements) {
+            const name = element.getAttribute("name");
+            if (isIrregular) element.value = obj.Verb[name] ?? "";
+            element.addEventListener("change", () => socket.emit("update-word", { ID, Verb: { [name]: element.value.trim() } }));
+        }
 
         categories.clear();
         obj.Cat.trim().split(",").map(x => x.trim()).filter(x => x.length > 0).forEach(id => categories.add(+id));
@@ -162,10 +192,10 @@ socket.emit("get-word-classes");
 socket.emit("get-word-categories");
 
 const params = new URLSearchParams(location.search);
-var ID = params.get("id"), ok = true;
+var ID = params.get("id"), query, ok = true;
 if (ID == undefined) {
-    ID = +prompt("Enter the ID of the word to edit");
+    query = prompt("Enter the ID or the Italian of the word to edit");
 } else {
-    ID = +ID;
+    query = +ID;
 }
-socket.emit("get-word-raw", ID);
+socket.emit("get-word-raw", { query, verb: true });

@@ -18,7 +18,7 @@
         <a>Edit Vocab</a>
     </div>
     <div class="centre">
-        <h1>Edit Existing Word</h1>
+        <h1 class="fancy-font">Edit Existing Word</h1>
         <button id="btn-back">Back</button>
 
         <div>
@@ -52,6 +52,54 @@
                 <span>Comment: </span>
                 <textarea id="txt-comment" rows="15" cols="42"></textarea>
             </p>
+
+            <div id="div-irregular-verb">
+                <hr>
+                <h3>Irregular Verb</h3>
+                <p><em>If any tenses/fields listed are irregular for this verb, enter them below.</em></p>
+                <p>
+                    <span>Present Tense: </span>
+                    <input class="inp-iv" name="Present" placeholder="Io, Tu, Lei, Noi, Voi, Loro" />
+                </p>
+                <p>
+                    <span>Contracted Infinitive: </span>
+                    <input class="inp-iv" name="ContractedInfin" />
+                </p>
+                <p>
+                    <span>Future Stem: </span>
+                    <input class="inp-iv" name="FutureStem" />
+                </p>
+                <p>
+                    <span>Present Participle: </span>
+                    <input class="inp-iv" name="PresentParticiple" />
+                </p>
+                <p>
+                    <span>Past Participle: </span>
+                    <input class="inp-iv" name="PastParticiple" />
+                </p>
+                <p>
+                    <span>Gerund: </span>
+                    <input class="inp-iv" name="Gerund" />
+                </p>
+                <p>
+                    <span>Auxiliary Verb: [default = avere]</span>
+                    <input class="inp-iv" name="AuxVerb" placeholder="avere" />
+                </p>
+                <p>
+                    <span>Imperfect: </span>
+                    <input class="inp-iv" name="Imperfect" placeholder="Io, Tu, Lei, Noi, Voi, Loro" />
+                </p>
+                <p>
+                    <span>Absolute Past: </span>
+                    <input class="inp-iv" name="AbsPast" placeholder="Io, Tu, Lei, Noi, Voi, Loro" />
+                </p>
+                <p>
+                    <span>Imperative: </span>
+                    <input class="inp-iv" name="Imperative" placeholder="Io, Tu, Lei, Noi, Voi, Loro" />
+                </p>
+                <hr>
+            </div>
+
             <br>
             <em>Fields are updated automatically when input value(s) is changed</em>
         </div>

@@ -10,7 +10,7 @@ function load(word) {
     const italian = word.It; //word.It.split(' ').map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(' ');
 
     // Title
-    centre.insertAdjacentHTML("beforeend", `<h1>${italian}</h1>`);
+    centre.insertAdjacentHTML("beforeend", `<h1 class="fancy-font">${italian}</h1>`);
     if (word.ItPlural) centre.insertAdjacentHTML("beforeend", `<p><em>Pl.</em> ${word.ItPlural}</p>`);
 
     // Breadcrumbs

@@ -3,6 +3,7 @@ var wordCats;
 
 function populateTable(cats) {
     tbody.innerHTML = '';
+    cats = cats.sort((a, b) => a.Name.localeCompare(b.Name, "en-GB")); // Sorrt alphabetically by name
     for (let cat of cats) {
         const tr = document.createElement('tr');
         tr.insertAdjacentHTML("beforeend", `<td>${cat.ID}</td>`);

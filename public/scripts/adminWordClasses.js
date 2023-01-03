@@ -3,6 +3,7 @@ var wordClasses;
 
 function populateTable(classes) {
     tbody.innerHTML = '';
+    classes = classes.sort((a, b) => a.Name.localeCompare(b.Name, "en-GB")); // Sorrt alphabetically by name
     for (let klass of classes) {
         const tr = document.createElement('tr');
         tr.insertAdjacentHTML("beforeend", `<td>${klass.ID}</td>`);
