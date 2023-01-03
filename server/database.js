@@ -80,6 +80,11 @@ async function getWordRaw(ID) {
     return await db.get("SELECT * FROM `Vocab` WHERE ID = ?", [ID]);
 }
 
+/** Get word by italian */
+async function getWordByItalian(italian) {
+    return await db.get("SELECT * FROM `Vocab` WHERE It = ?", [italian]);
+}
+
 /** Update Vocab record by providing its object record. If property is undefined, do not update it */
 async function updateWord(record) {
     const queries = [], params = [];
@@ -153,6 +158,6 @@ module.exports = {
     db,
     getWordClasses, updateWordClass, deleteWordClass, createWordClass,
     getWordCategories, updateWordCategory, deleteWordCategory, createWordCategory,
-    getWords, insertIntoVocab, getWordRaw, updateWord,
+    getWords, getWordByItalian, insertIntoVocab, getWordRaw, updateWord,
     getIrregularVerbInfo, createIrregularVerb, updateIrregularVerb,
 };

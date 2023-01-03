@@ -34,6 +34,11 @@ socket.on("get-word-categories", array => {
     }
 });
 
+inputIt.addEventListener("change", () => {
+    const it = inputIt.value.trim();
+    if (it) socket.emit("check-it-exists", it);
+});
+
 selectClasses.addEventListener("change", () => {
     const id = +selectClasses.value;
     if (!isNaN(id)) {

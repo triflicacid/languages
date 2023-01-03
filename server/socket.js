@@ -53,16 +53,29 @@ function setupSocket(socket) {
         socket.emit("create-word-cat", { ID, Name, Desc });
     });
 
+    // Italian: check if word entry exists
+    socket.on("check-it-exists", async (it) => {
+        const exist = await db.getWordByItalian(it);
+        if (exist) {
+            socket.emit("alert", `An entry for "${it}" already exists.`);
+        }
+    });
+
     // Create a new Vocab word
     socket.on("create-word", async data => {
         if (data.It.trim().length === 0 || data.En.length === 0 || data.En[0].trim().length === 0) {
             socket.emit("alert", "Missing required information.");
         } else {
-            const id = await db.insertIntoVocab(data.It, data.En, data.ItPlural, data.Gender, data.Class, data.Cat, data.Comment);
-            if (data.IrregVerb !== undefined) {
-                await db.createIrregularVerb(id, data.IrregVerb);
+            const exist = await db.getWordByItalian(data.It);
+            if (exist) {
+                socket.emit("alert", `An entry for "${data.It}" already exists.`);
+            } else {
+                const id = await db.insertIntoVocab(data.It, data.En, data.ItPlural, data.Gender, data.Class, data.Cat, data.Comment);
+                if (data.IrregVerb !== undefined) {
+                    await db.createIrregularVerb(id, data.IrregVerb);
+                }
+                socket.emit("create-word", id);
             }
-            socket.emit("create-word", id);
         }
     });
 

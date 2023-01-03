@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <script src="/scripts/main.js" type="text/javascript" charset="utf-8"></script>
     <script src="/socket.io/socket.io.js" type="text/javascript" charset="utf-8"></script>
 </head>
+
 <body>
     <div class="breadcrumbs">
         <a href="/">Home</a>
@@ -17,17 +19,18 @@
     </div>
     <div class="centre">
         <h1>Italian Vocabulary Test</h1>
+
+        <div id="test-config"></div>
+        <br>
+
+        <div id="test-results"></div>
+        <br>
+
+        <p>Accents: É, é, È, è, Ú, ú, Í, í, Ì, ì</p>
+        <div id="test-body"></div>
     </div>
 
-    <div id="test-config"></div>
-    <br>
-
-    <div id="test-results"></div>
-    <br>
-    
-    <p>Accents: É, é, È, è, Ú, ú, Í, í, Ì, ì</p>
-    <div id="test-body"></div>
-    
     <script src="/scripts/vocabTest.js" type="text/javascript" charset="utf-8"></script>
 </body>
+
 </html>
