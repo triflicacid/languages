@@ -6,6 +6,7 @@ const check = "&#10003;", cross = "&#10008;";
 const TYPE_IT_EN = 1;
 const TYPE_EN_IT = 2;
 const TYPE_GENDER = 3;
+const TYPE_IT_SPEECH = 4;
 
 // Populate #test-config
 function loadConfig() {
@@ -30,9 +31,10 @@ function loadConfig() {
     td = document.createElement('td');
     tr.appendChild(td);
     const selectType = document.createElement('select');
-    selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_IT_EN}">It &rarr; En</option>`);
-    selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_EN_IT}">En &rarr; It</option>`);
+    selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_IT_EN}">Italian &rarr; English</option>`);
+    selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_EN_IT}">English &rarr; Italian</option>`);
     selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_GENDER}">Gender</option>`);
+    selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_IT_SPEECH}">Italian from Pronunctiation</option>`);
     td.appendChild(selectType);
 
     // Word class
@@ -43,7 +45,7 @@ function loadConfig() {
     const selectClass = document.createElement('select');
     td.appendChild(selectClass);
     selectClass.insertAdjacentHTML("beforeend", "<option value='-'>-</option>");
-    wordClasses.forEach(o => selectClass.insertAdjacentHTML("beforeend", `<option value='${o.ID}'>${o.Name}</option>`));
+    if (wordClasses) wordClasses.forEach(o => selectClass.insertAdjacentHTML("beforeend", `<option value='${o.ID}'>${o.Name}</option>`));
     tr.appendChild(td);
 
     // Word category
@@ -60,7 +62,7 @@ function loadConfig() {
         const select = document.createElement("select");
         span.appendChild(select);
         select.insertAdjacentHTML("beforeend", `<option value='-' selected>-</option>`);
-        wordCategories.forEach(o => select.insertAdjacentHTML("beforeend", `<option value='${o.ID}'>${o.Name}</option>`));
+        if (wordCategories) wordCategories.forEach(o => select.insertAdjacentHTML("beforeend", `<option value='${o.ID}'>${o.Name}</option>`));
         const btn = document.createElement("button");
         span.appendChild(btn);
         btn.innerText = 'X';
@@ -88,13 +90,23 @@ function loadConfig() {
     // Show certain columns
     tr = document.createElement('tr');
     tbody.appendChild(tr);
-    tr.insertAdjacentHTML("beforeend", "<td><strong>Show Extra Info</strong></td>");
+    tr.insertAdjacentHTML("beforeend", "<td><strongExtra Info</strong></td>");
     td = document.createElement('td');
     tr.appendChild(td);
+    const checkboxAllowSpeak = document.createElement('input');
+    checkboxAllowSpeak.type = "checkbox";
+    checkboxAllowSpeak.checked = true;
+    td.insertAdjacentHTML("beforeend", "Speak&nbsp;");
+    td.appendChild(checkboxAllowSpeak);
+    const checkboxShowWords = document.createElement('input');
+    checkboxShowWords.type = "checkbox";
+    checkboxShowWords.checked = true;
+    td.insertAdjacentHTML("beforeend", "| Words&nbsp;");
+    td.appendChild(checkboxShowWords);
     const checkboxShowGender = document.createElement('input');
     checkboxShowGender.type = 'checkbox';
     checkboxShowGender.checked = true;
-    td.insertAdjacentHTML("beforeend", "Gender&nbsp;");
+    td.insertAdjacentHTML("beforeend", "| Gender&nbsp;");
     td.appendChild(checkboxShowGender);
     const checkboxShowClass = document.createElement('input');
     checkboxShowClass.type = 'checkbox';
@@ -124,7 +136,6 @@ function loadConfig() {
             return (wordClass === undefined ? true : o.Class.some(n => n === wordClass)) &&
                 (wordCat.length === 0 ? true : wordCat.filter(n => o.Cat.indexOf(n) === -1).length === 0);
         });
-        let i = 0;
         while (test.length < count && test.length < available.length) {
             const idx = Math.floor(Math.random() * available.length);
             const word = available[idx];
@@ -133,12 +144,12 @@ function loadConfig() {
                 test.push(word);
             }
         }
-        populateTest(test, +selectType.value, checkboxShowGender.checked, checkboxShowClass.checked, checkboxShowCategory.checked);
+        populateTest(test, +selectType.value, checkboxAllowSpeak.checked, checkboxShowWords.checked, checkboxShowGender.checked, checkboxShowClass.checked, checkboxShowCategory.checked);
     });
 }
 
 // List test words
-function populateTest(words, testType, showGender = true, showClass = true, showCategory = true) {
+function populateTest(words, testType, allowSpeak = true, showWords = true, showGender = true, showClass = true, showCategory = true) {
     divTest.innerHTML = "";
     const table = document.createElement("table");
     divTest.appendChild(table);
@@ -169,15 +180,23 @@ function populateTest(words, testType, showGender = true, showClass = true, show
         const tr = document.createElement("tr");
         tbody.appendChild(tr);
 
-        let input;
+        let input, td;
 
-        let td = document.createElement("td");
-        if (testType === TYPE_EN_IT) {
+        td = document.createElement("td");
+        if (allowSpeak && testType !== TYPE_EN_IT) {
+            const btnSpeak = document.createElement("span");
+            btnSpeak.innerHTML = "&#x1f50a;";
+            btnSpeak.classList.add("link", "no-underline");
+            btnSpeak.addEventListener('click', () => speak(word.It, "it-IT"));
+            td.appendChild(btnSpeak);
+            td.insertAdjacentHTML("beforeend", " &nbsp;");
+        }
+        if (testType === TYPE_EN_IT || testType === TYPE_IT_SPEECH) {
             input = document.createElement("input");
             input.type = "text";
             td.appendChild(input);
         } else {
-            td.insertAdjacentText("beforeend", word.It);
+            if (showWords) td.insertAdjacentText("beforeend", word.It);
         }
         tr.appendChild(td);
 
@@ -187,7 +206,15 @@ function populateTest(words, testType, showGender = true, showClass = true, show
             input.type = "text";
             td.appendChild(input);
         } else {
-            td.insertAdjacentHTML("beforeend", word.En.map(en => "<em>" + en + "</em>").join(", "));
+            if (allowSpeak) {
+                const btnSpeak = document.createElement("span");
+                btnSpeak.innerHTML = "&#x1f50a;";
+                btnSpeak.classList.add("link", "no-underline");
+                btnSpeak.addEventListener('click', () => speak(word.En.join(", or "), "en-GB"));
+                td.appendChild(btnSpeak);
+                td.insertAdjacentHTML("beforeend", " &nbsp;");
+            }
+            if (showWords) td.insertAdjacentHTML("beforeend", word.En.map(en => "<em>" + en + "</em>").join(", "));
         }
         tr.appendChild(td);
 
@@ -243,6 +270,7 @@ function populateTest(words, testType, showGender = true, showClass = true, show
                     ok = word.En.some(en => value === en);
                     break;
                 case TYPE_EN_IT:
+                case TYPE_IT_SPEECH:
                     ok = word.It === value;
                     break;
                 case TYPE_GENDER:
@@ -262,6 +290,7 @@ function populateTest(words, testType, showGender = true, showClass = true, show
                         content = word.En.map(x => "<em>" + x + "</em>").join(", ");
                         break;
                     case TYPE_EN_IT:
+                    case TYPE_IT_SPEECH:
                         content = "<em>" + word.It + "</em>";
                         break;
                     case TYPE_GENDER:

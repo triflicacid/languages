@@ -12,8 +12,16 @@ function populateTBody(words) {
         tbody.appendChild(tr);
         htmlRows.push(tr);
 
-        let td = document.createElement("td");
+        td = document.createElement("td");
         if (hiddenRows.includes(0)) td.classList.add("hide");
+        // SPEAK button
+        const btnSpeak = document.createElement("span");
+        btnSpeak.classList.add("link", "no-underline");
+        btnSpeak.innerHTML = "&#x1f50a;";
+        btnSpeak.addEventListener("click", () => speak(word.It));
+        td.appendChild(btnSpeak);
+        td.insertAdjacentHTML("beforeend", " &nbsp;");
+        // ITALIAN word
         const linkIt = document.createElement("a");
         linkIt.innerText = word.It;
         linkIt.href = "./word.html?id=" + word.ID;

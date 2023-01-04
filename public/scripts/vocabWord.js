@@ -4,13 +4,16 @@ const pronouns = ["Io", "Tu", "Lui/Lei", "Noi", "Voi", "Loro"];
 
 /** Load word information */
 function load(word) {
-    console.log(word);
     window.word = word;
 
     const italian = word.It; //word.It.split(' ').map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(' ');
 
     // Title
-    centre.insertAdjacentHTML("beforeend", `<h1 class="fancy-font">${italian}</h1>`);
+    const h1Title = document.createElement("h1");
+    h1Title.innerText = italian;
+    h1Title.classList.add("fancy-font");
+    elInitSpeak(h1Title);
+    centre.appendChild(h1Title);
     if (word.ItPlural) centre.insertAdjacentHTML("beforeend", `<p><em>Pl.</em> ${word.ItPlural}</p>`);
 
     // Breadcrumbs
@@ -57,16 +60,16 @@ function load(word) {
         sect.insertAdjacentHTML("beforeend", "<h2>Nominal Forms</h2>");
         p = document.createElement("p");
         sect.appendChild(p);
-        p.insertAdjacentHTML("beforeend", `<span>Present Participle: <em>${presentParticiple}</em>.</span>`);
-        p.insertAdjacentHTML("beforeend", `<br><span>Past Participle: <em>${pastParticiple}</em>.</span>`);
-        p.insertAdjacentHTML("beforeend", `<br><span>Gerund: <em>${gerund}</em>.</span>`);
-        p.insertAdjacentHTML("beforeend", `<br><span>Future Stem: <em>${futureStem}-</em>.</span>`);
+        p.insertAdjacentHTML("beforeend", `<span>Present Participle: <em class='speak'>${presentParticiple}</em>.</span>`);
+        p.insertAdjacentHTML("beforeend", `<br><span>Past Participle: <em class='speak'>${pastParticiple}</em>.</span>`);
+        p.insertAdjacentHTML("beforeend", `<br><span>Gerund: <em class='speak'>${gerund}</em>.</span>`);
+        p.insertAdjacentHTML("beforeend", `<br><span>Future Stem: <em class='speak'>${futureStem}-</em>.</span>`);
 
         // Present
         sect = document.createElement('section');
         div.appendChild(sect);
         sect.insertAdjacentHTML("beforeend", "<h2>The Present - <em>Il Presente</em></h2>");
-        sect.insertAdjacentHTML("beforeend", `<p>Present participle - <em>${presentParticiple}</em></p>`);
+        sect.insertAdjacentHTML("beforeend", `<p>Present participle - <em class='speak'>${presentParticiple}</em></p>`);
 
         let presentHTML;
         if (word.Verb.Present) {
@@ -82,10 +85,10 @@ function load(word) {
         let table = document.createElement("table");
         sect.appendChild(table);
         table.classList.add("border");
-        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
+        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th class='speak'>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
         let tbody = table.createTBody();
         pronouns.forEach((pronoun, i) => {
-            tbody.insertAdjacentHTML("beforeend", `<tr><td>${pronoun}</td><td>${presentHTML[i]}</td></tr>`);
+            tbody.insertAdjacentHTML("beforeend", `<tr><td class='speak'>${pronoun}</td><td class='speak'>${presentHTML[i]}</td></tr>`);
         });
         sect.insertAdjacentHTML("beforeend", "<hr>");
 
@@ -93,22 +96,22 @@ function load(word) {
         sect = document.createElement('section');
         div.appendChild(sect);
         sect.insertAdjacentHTML("beforeend", "<h2>The Past - <em>Il Passato</em></h2>");
-        sect.insertAdjacentHTML("beforeend", `<p>Past participle - <em>${pastParticiple}</em></p>`);
+        sect.insertAdjacentHTML("beforeend", `<p>Past participle - <em class='speak'>${pastParticiple}</em></p>`);
 
         sect.insertAdjacentHTML("beforeend", "<h3>The Present Perfect - <em>Il Passato Prossimo</em></h3>");
-        sect.insertAdjacentHTML("beforeend", `<p>Formation: auxiliary verb + past participle - <strong>${word.AuxVerb.It}</strong> + <strong>${word.Verb.PastParticiple}</strong></p>`);
+        sect.insertAdjacentHTML("beforeend", `<p>Formation: auxiliary verb + past participle - <strong class='speak'>${word.AuxVerb.It}</strong> + <strong class='speak'>${word.Verb.PastParticiple}</strong></p>`);
         const presentPerfectHTML = verbGeneratePresentPerfect(word.Verb, word.AuxVerb, true);
         table = document.createElement("table");
         sect.appendChild(table);
         table.classList.add("border");
-        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
+        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th class='speak'>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
         tbody = table.createTBody();
         pronouns.forEach((pronoun, i) => {
-            tbody.insertAdjacentHTML("beforeend", `<tr><td>${pronoun}</td><td>${presentPerfectHTML[i]}</td></tr>`);
+            tbody.insertAdjacentHTML("beforeend", `<tr><td class='speak'>${pronoun}</td><td class='speak'>${presentPerfectHTML[i]}</td></tr>`);
         });
 
         sect.insertAdjacentHTML("beforeend", "<h3>The Imperfect - <em>L'imperfetto</em></h3>");
-        if (word.Verb.ContractedInfin) sect.insertAdjacentHTML("beforeend", `<p><strong>NOTE</strong> the imperfect uses the <strong>contracted</strong> infinitive, <em>${word.Verb.ContractedInfin}</em></p>`);
+        if (word.Verb.ContractedInfin) sect.insertAdjacentHTML("beforeend", `<p><strong>NOTE</strong> the imperfect uses the <strong>contracted</strong> infinitive, <em class='speak'>${word.Verb.ContractedInfin}</em></p>`);
         let imperfectHTML;
         if (word.Verb.Imperfect) {
             imperfectHTML = word.Verb.Imperfect.split(",").map(x => "<strong>" + x.trim() + "</strong>");
@@ -118,22 +121,22 @@ function load(word) {
         table = document.createElement("table");
         sect.appendChild(table);
         table.classList.add("border");
-        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
+        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th class='speak'>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
         tbody = table.createTBody();
         pronouns.forEach((pronoun, i) => {
-            tbody.insertAdjacentHTML("beforeend", `<tr><td>${pronoun}</td><td>${imperfectHTML[i]}</td></tr>`);
+            tbody.insertAdjacentHTML("beforeend", `<tr><td class='speak'>${pronoun}</td><td class='speak'>${imperfectHTML[i]}</td></tr>`);
         });
 
         sect.insertAdjacentHTML("beforeend", "<h3>The Past Perfect - <em>Il trapassato prossimo</em></h3>");
-        sect.insertAdjacentHTML("beforeend", `<p>Formation: auxiliary verb in the Imperfect + past participle -<strong>${word.AuxVerb.It}</strong> + <strong>${word.Verb.PastParticiple}</strong></p>`);
+        sect.insertAdjacentHTML("beforeend", `<p>Formation: auxiliary verb in the Imperfect + past participle - <strong class='speak'>${word.AuxVerb.It}</strong> + <strong class='speak'>${word.Verb.PastParticiple}</strong></p>`);
         let pastPerfectHTML = verbGeneratePastPerfect(pastParticiple, word.AuxVerb, true);
         table = document.createElement("table");
         sect.appendChild(table);
         table.classList.add("border");
-        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
+        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th class='speak'>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
         tbody = table.createTBody();
         pronouns.forEach((pronoun, i) => {
-            tbody.insertAdjacentHTML("beforeend", `<tr><td>${pronoun}</td><td>${pastPerfectHTML[i]}</td></tr>`);
+            tbody.insertAdjacentHTML("beforeend", `<tr><td class='speak'>${pronoun}</td><td class='speak'>${pastPerfectHTML[i]}</td></tr>`);
         });
         sect.insertAdjacentHTML("beforeend", "<hr>");
 
@@ -141,27 +144,27 @@ function load(word) {
         sect = document.createElement('section');
         div.appendChild(sect);
         sect.insertAdjacentHTML("beforeend", "<h2>The Future - <em>Il Futuro</em></h2>");
-        sect.insertAdjacentHTML("beforeend", `<p>Future Stem - <em>${futureStem}</em>-</p>`);
+        sect.insertAdjacentHTML("beforeend", `<p>Future Stem - <em class='speak'>${futureStem}</em>-</p>`);
         let futureHTML = verbGenerateFuture(futureStem, true);
         table = document.createElement("table");
         sect.appendChild(table);
         table.classList.add("border");
-        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
+        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th class='speak'>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
         tbody = table.createTBody();
         pronouns.forEach((pronoun, i) => {
-            tbody.insertAdjacentHTML("beforeend", `<tr><td>${pronoun}</td><td>${futureHTML[i]}</td></tr>`);
+            tbody.insertAdjacentHTML("beforeend", `<tr><td class='speak'>${pronoun}</td><td class='speak'>${futureHTML[i]}</td></tr>`);
         });
 
         sect.insertAdjacentHTML("beforeend", "<h3>The Future Perfect - <em>Il Futuro Anteriore</em></h3>");
-        sect.insertAdjacentHTML("beforeend", `<p>Formation: auxiliary verb in the Future + past participle - <strong>${word.AuxVerb.It}</strong> + <strong>${word.Verb.PastParticiple}</strong></p>`);
+        sect.insertAdjacentHTML("beforeend", `<p>Formation: auxiliary verb in the Future + past participle - <strong class='speak'>${word.AuxVerb.It}</strong> + <strong class='speak'>${word.Verb.PastParticiple}</strong></p>`);
         const futurePerfectHTML = verbGenerateFuturePerfect(pastParticiple, word.AuxVerb.It, true);
         table = document.createElement("table");
         sect.appendChild(table);
         table.classList.add("border");
-        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
+        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th class='speak'>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
         tbody = table.createTBody();
         pronouns.forEach((pronoun, i) => {
-            tbody.insertAdjacentHTML("beforeend", `<tr><td>${pronoun}</td><td>${futurePerfectHTML[i]}</td></tr>`);
+            tbody.insertAdjacentHTML("beforeend", `<tr><td class='speak'>${pronoun}</td><td class='speak'>${futurePerfectHTML[i]}</td></tr>`);
         });
         sect.insertAdjacentHTML("beforeend", "<hr>");
 
@@ -169,27 +172,27 @@ function load(word) {
         sect = document.createElement('section');
         div.appendChild(sect);
         sect.insertAdjacentHTML("beforeend", "<h2>The Conditional - <em>Il condizionale</em></h2>");
-        sect.insertAdjacentHTML("beforeend", `<p>The Future Stem - <em>${futureStem}</em></p>`);
+        sect.insertAdjacentHTML("beforeend", `<p>The Future Stem - <em class='speak'>${futureStem}</em></p>`);
         const conditionalHTML = verbGenerateConditional(futureStem, true);
         table = document.createElement("table");
         sect.appendChild(table);
         table.classList.add("border");
-        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
+        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th class='speak'>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
         tbody = table.createTBody();
         pronouns.forEach((pronoun, i) => {
-            tbody.insertAdjacentHTML("beforeend", `<tr><td>${pronoun}</td><td>${conditionalHTML[i]}</td></tr>`);
+            tbody.insertAdjacentHTML("beforeend", `<tr><td class='speak'>${pronoun}</td><td class='speak'>${conditionalHTML[i]}</td></tr>`);
         });
 
         sect.insertAdjacentHTML("beforeend", "<h3>The Past Conditional - <em>Il condizionale passato</em></h3>");
-        sect.insertAdjacentHTML("beforeend", `<p>Formation: auxiliary verb in the Conditional + past participle - <strong>${word.AuxVerb.It}</strong> + <strong>${word.Verb.PastParticiple}</strong></p>`);
+        sect.insertAdjacentHTML("beforeend", `<p>Formation: auxiliary verb in the Conditional + past participle - <strong class='speak'>${word.AuxVerb.It}</strong> + <strong class='speak'>${word.Verb.PastParticiple}</strong></p>`);
         const conditionalPastHTML = verbGenerateConditionalPast(pastParticiple, word.AuxVerb.It, true);
         table = document.createElement("table");
         sect.appendChild(table);
         table.classList.add("border");
-        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
+        table.insertAdjacentHTML("beforeend", `<thead><tr><th></th><th class='speak'>${word.Verb.Stem}<strong>${word.Verb.InfEnding}</strong></th></tr></thead>`);
         tbody = table.createTBody();
         pronouns.forEach((pronoun, i) => {
-            tbody.insertAdjacentHTML("beforeend", `<tr><td>${pronoun}</td><td>${conditionalPastHTML[i]}</td></tr>`);
+            tbody.insertAdjacentHTML("beforeend", `<tr><td class='speak'>${pronoun}</td><td class='speak'>${conditionalPastHTML[i]}</td></tr>`);
         });
         sect.insertAdjacentHTML("beforeend", "<hr>");
 
@@ -197,6 +200,8 @@ function load(word) {
         // sect = document.createElement('section');
         // div.appendChild(sect);
         // sect.insertAdjacentHTML("beforeend", "<h2>The Imperative - <em>L’imperativo</em></h2>");
+
+        loadSpeakText();
     }
 }
 

@@ -50,6 +50,30 @@ ol.no-bullet {
     list-style: none;
 }
 
+a,
+.link {
+    color: black;
+}
+
+a:not(.no-underline),
+.link:not(.no-underline) {
+    text-decoration: underline;
+}
+
+a:hover,
+.link:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.speak {
+    text-decoration: dotted underline;
+}
+
+.speak:hover {
+    text-decoration: none;
+}
+
 .breadcrumbs {
     background-color: #009346;
     color: #FFFFFF;

@@ -1,8 +1,9 @@
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     setLinkTitles();
     setWindowTitle();
     loadBreadcrumbs();
     seperateSections();
+    loadSpeakText();
 });
 
 // Insert breaks between <section/> in main content
@@ -48,5 +49,27 @@ function loadBreadcrumbs() {
             if (i < count - 1) link.insertAdjacentHTML("afterend", " &gt; ");
             i += 1;
         }
+    }
+}
+
+function speak(text, lang = "it-IT") {
+    window.speechSynthesis.cancel();
+    let utter = new SpeechSynthesisUtterance(text);
+    utter.lang = lang;
+    window.speechSynthesis.speak(utter);
+}
+
+/** Load text with .speak class */
+function loadSpeakText() {
+    const els = document.getElementsByClassName("speak");
+    for (const el of els) elInitSpeak(el);
+}
+
+function elInitSpeak(el) {
+    if (el.dataset.initSpeak !== 'true') {
+        el.classList.add("speak");
+        el.title = (el.title ? el.title + ' ' : '') + "(Click to speak)";
+        el.addEventListener("click", () => speak(el.innerText));
+        el.dataset.initSpeak = true;
     }
 }
