@@ -13,7 +13,7 @@ async function getWordCategories() {
 
 /** Create new vocab entry: It: string, En: string[], Class: number[], Cat: number[], Comment: string. Returns ID, */
 async function insertIntoVocab(It, En, ItPlural, Gender, Class = [], Cat = [], Comment = "") {
-    return await db.run("INSERT INTO Vocab (It, En, ItPlural, Gender, Class, Cat, Comment) VALUES (?, ?, ?, ?, ?, ?, ?)", [It, En.join(","), ItPlural, Gender || "", Class.join(","), Cat.join(","), Comment]);
+    return await db.run("INSERT INTO Vocab (It, En, ItPlural, Gender, Class, Cat, Comment) VALUES (?, ?, ?, ?, ?, ?, ?)", [It.toLowerCase(), En.map(x => x.toLowerCase()).join(","), ItPlural.toLowerCase(), Gender || "", Class.join(","), Cat.join(","), Comment]);
 }
 
 /** Update a Word Class record. If provided values are undefined, do not update that field. */
@@ -82,7 +82,7 @@ async function getWordRaw(ID) {
 
 /** Get word by italian */
 async function getWordByItalian(italian) {
-    return await db.get("SELECT * FROM `Vocab` WHERE It = ?", [italian]);
+    return await db.get("SELECT * FROM `Vocab` WHERE It = ?", [italian.toLowerCase()]);
 }
 
 /** Update Vocab record by providing its object record. If property is undefined, do not update it */
@@ -90,15 +90,15 @@ async function updateWord(record) {
     const queries = [], params = [];
     if (record.It != undefined) {
         queries.push("It = ?");
-        params.push(record.It);
+        params.push(record.It.toLowerCase());
     }
     if (record.En != undefined) {
         queries.push("En = ?");
-        params.push(record.En);
+        params.push(record.En.toLowerCase());
     }
     if (record.ItPlural != undefined) {
         queries.push("ItPlural = ?");
-        params.push(record.ItPlural);
+        params.push(record.ItPlural.toLowerCase());
     }
     if (record.Gender != undefined) {
         queries.push("Gender = ?");
@@ -149,7 +149,7 @@ async function updateIrregularVerb(data) {
     for (const name of names) {
         if (data[name] !== undefined) {
             sql.push(`${name} = ?`);
-            params.push(data[name]);
+            params.push(data[name].toString().toLowerCase());
         }
     }
     if (sql.length > 0) {
@@ -171,12 +171,12 @@ async function getPhraseRaw(ID) {
 
 /** Get phrase by italian */
 async function getPhraseByItalian(italian) {
-    return await db.get("SELECT * FROM `Phrases` WHERE It = ?", [italian]);
+    return await db.get("SELECT * FROM `Phrases` WHERE It = ?", [italian.toLowerCase()]);
 }
 
 /** Create new phrase entry: It: string, En: string[], Cat: number[], Comment: string. Returns ID, */
 async function insertIntoPhrases(It, En, Cat = [], Comment = "") {
-    return await db.run("INSERT INTO Phrases (It, En, Cat, Comment) VALUES (?, ?, ?, ?)", [It, En.join(","), Cat.join(","), Comment]);
+    return await db.run("INSERT INTO Phrases (It, En, Cat, Comment) VALUES (?, ?, ?, ?)", [It.toLowerCase(), En.map(x => x.toLowerCase()).join(","), Cat.join(","), Comment]);
 }
 
 /** Update Phrase record by providing its object record. If property is undefined, do not update it */
@@ -184,11 +184,11 @@ async function updatePhrase(record) {
     const queries = [], params = [];
     if (record.It != undefined) {
         queries.push("It = ?");
-        params.push(record.It);
+        params.push(record.It.toLowerCase());
     }
     if (record.En != undefined) {
         queries.push("En = ?");
-        params.push(record.En);
+        params.push(record.En.toLowerCase());
     }
     if (record.Cat != undefined) {
         queries.push("Cat = ?");

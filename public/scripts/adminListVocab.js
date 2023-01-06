@@ -81,11 +81,11 @@ function populateTBody(words) {
     }
 }
 
-function searchPhrases(It, En, ItPlural, Gender, Class, Cat) {
+function searchWords(It, En, ItPlural, Gender, Class, Cat) {
     let filtered = phrases.filter(word => {
-        return (It ? word.It.indexOf(It) !== -1 : true) &&
-            (En ? word.En.indexOf(En) !== -1 : true) &&
-            (ItPlural ? (word.ItPlural || "").indexOf(ItPlural) !== -1 : true) &&
+        return (It ? word.It.indexOf(It.toLowerCase()) !== -1 : true) &&
+            (En ? word.En.indexOf(En.toLowerCase()) !== -1 : true) &&
+            (ItPlural ? (word.ItPlural || "").indexOf(ItPlural.toLowerCase()) !== -1 : true) &&
             (Gender ? word.Gender === Gender : true) &&
             (Class ? (word.Class || "").indexOf(Class) !== -1 : true) &&
             (Cat ? (word.Cat || "").indexOf(Cat) !== -1 : true);
@@ -99,7 +99,7 @@ btnNew.addEventListener("click", () => {
 
 (function () {
     function search() {
-        searchPhrases(...inputs.map(e => e.value));
+        searchWords(...inputs.map(e => e.value));
     }
 
     const inputs = [];

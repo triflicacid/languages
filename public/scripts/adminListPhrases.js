@@ -53,8 +53,8 @@ function populateTBody(phrases) {
 
 function searchPhrases(It, En, Cat) {
     let filtered = phrases.filter(phrase => {
-        return (It ? phrase.It.indexOf(It) !== -1 : true) &&
-            (En ? phrase.En.indexOf(En) !== -1 : true) &&
+        return (It ? phrase.It.indexOf(It.toLowerCase()) !== -1 : true) &&
+            (En ? phrase.En.indexOf(En.toLowerCase()) !== -1 : true) &&
             (Cat ? (phrase.Cat || "").indexOf(Cat) !== -1 : true);
     });
     populateTBody(filtered);

@@ -97,6 +97,10 @@ a:hover,
     color: khaki;
 }
 
+.speech-settings {
+    float: right;
+}
+
 table.border,
 table.border tr,
 table.border th,

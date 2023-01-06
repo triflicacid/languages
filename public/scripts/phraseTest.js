@@ -111,7 +111,7 @@ function loadConfig() {
         const available = allPhrases.filter(o => {
             return (wordCat.length === 0 ? true : wordCat.filter(n => o.Cat.indexOf(n) === -1).length === 0);
         });
-        while (test.length < count && test.length < available.length) {
+        while (test.length < count && available.length > 0) {
             const idx = Math.floor(Math.random() * available.length);
             const word = available[idx];
             available.splice(idx, 1);
@@ -206,15 +206,15 @@ function populateTest(phrases, testType, allowSpeak = true, showWords = true, sh
         let correct = 0;
         const rows = tbody.querySelectorAll('tr');
         for (let i = 0; i < phrases.length; i++) {
-            const value = inputs[i].value.trim(), word = phrases[i];
+            const value = inputs[i].value.trim().toLowerCase(), word = phrases[i];
             let ok = false;
             switch (testType) {
                 case TYPE_IT_EN:
-                    ok = word.En.some(en => value === en);
+                    ok = word.En.some(en => removeSpaces(value) === removeSpaces(en));
                     break;
                 case TYPE_EN_IT:
                 case TYPE_IT_SPEECH:
-                    ok = word.It === value;
+                    ok = removeSpaces(word.It) === removeSpaces(value);
                     break;
                 case TYPE_GENDER:
                     ok = word.Gender === value;

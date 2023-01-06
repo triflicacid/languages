@@ -1,9 +1,12 @@
+var __speak_rate = 1;
+
 window.addEventListener("load", function () {
     setLinkTitles();
     setWindowTitle();
     loadBreadcrumbs();
     seperateSections();
     loadSpeakText();
+    loadSpeechSlider();
 });
 
 // Insert breaks between <section/> in main content
@@ -56,6 +59,7 @@ function speak(text, lang = "it-IT") {
     window.speechSynthesis.cancel();
     let utter = new SpeechSynthesisUtterance(text);
     utter.lang = lang;
+    utter.rate = __speak_rate;
     window.speechSynthesis.speak(utter);
 }
 
@@ -72,4 +76,30 @@ function elInitSpeak(el) {
         el.addEventListener("click", () => speak(el.innerText));
         el.dataset.initSpeak = true;
     }
+}
+
+function loadSpeechSlider() {
+    const container = document.querySelector(".breadcrumbs");
+    const div = document.createElement("div");
+    div.classList.add("speech-settings");
+    container.appendChild(div);
+    const desc = document.createElement("abbr");
+    desc.innerText = "Speech Speed: ";
+    desc.title = "Speed: " + (__speak_rate * 100) + "%";
+    div.appendChild(desc);
+    const input = document.createElement("input");
+    input.type = "range";
+    input.min = "0";
+    input.step = "0.1";
+    input.max = "2";
+    input.value = "1";
+    input.addEventListener("change", () => {
+        __speak_rate = +input.value;
+        desc.title = "Speed: " + (__speak_rate * 100) + "%";
+    });
+    div.appendChild(input);
+}
+
+function removeSpaced(str) {
+    return str.replace(/\s+/g, '');
 }
