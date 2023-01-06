@@ -1,6 +1,6 @@
 const divConfig = document.getElementById('test-config');
 const divTest = document.getElementById('test-body');
-var wordClasses, wordCategories, allPhrases;
+var wordClasses, wordCategories, allWords;
 const check = "&#10003;", cross = "&#10008;";
 
 const TYPE_IT_EN = 1;
@@ -132,7 +132,7 @@ function loadConfig() {
         const wordClass = selectClass.value === '-' ? undefined : +selectClass.value;
         const wordCat = Array.from(selectSpan.querySelectorAll("select")).map(e => +e.value).filter(n => !isNaN(n));
         const test = [], count = +inputWordCount.value;
-        const available = allPhrases.filter(o => {
+        const available = allWords.filter(o => {
             return (wordClass === undefined ? true : o.Class.some(n => n === wordClass)) &&
                 (wordCat.length === 0 ? true : wordCat.filter(n => o.Cat.indexOf(n) === -1).length === 0);
         });
@@ -329,8 +329,8 @@ socket.on("get-word-categories", array => {
     incRecieved();
 });
 socket.on("get-words", array => {
-    allPhrases = array;
-    allPhrases = allPhrases.map(o => {
+    allWords = array;
+    allWords = allWords.map(o => {
         o.En = o.En.split(",");
         o.Cat = o.Cat ? o.Cat.split(",").map(n => +n) : [];
         o.Class = o.Class ? o.Class.split(",").map(n => +n) : [];

@@ -165,6 +165,58 @@ function setupSocket(socket) {
 
         socket.emit("get-word-info", word);
     });
+
+    // Get array of all phrases
+    socket.on("get-phrases", async () => {
+        const phrases = await db.getPhrases();
+        socket.emit("get-phrases", phrases);
+    });
+
+    // Get raw record from Phrase table
+    socket.on("get-phrase-raw", async (query) => {
+        let phrase;
+        if (!isNaN(+query)) { // Valid ID?
+            phrase = await db.getPhraseRaw(+query);
+        } else {
+            phrase = await db.getPhraseByItalian(query.trim());
+        }
+        socket.emit("get-phrase-raw", phrase);
+    });
+
+    // Get phrase along with any appropriate extras
+    socket.on("get-phrase-info", async id => {
+        id = +id;
+        const phrase = await db.getPhraseRaw(id);
+
+        // Split English translations
+        phrase.En = phrase.En ? phrase.En.split(",").map(a => isNaN(+a) ? a : (+a).toLocaleString('en-GB')) : [];
+
+        // Populate word category names
+        const wordCategories = await db.getWordCategories();
+        phrase.Cat = phrase.Cat ? phrase.Cat.split(',').map(k => wordCategories.find(wc => wc.ID == k).Name) : [];
+
+        socket.emit("get-phrase-info", phrase);
+    });
+
+    // Create a new Phrase
+    socket.on("create-phrase", async data => {
+        if (data.It.trim().length === 0 || data.En.length === 0 || data.En[0].trim().length === 0) {
+            socket.emit("alert", "Missing required information.");
+        } else {
+            const exist = await db.getPhraseByItalian(data.It);
+            if (exist) {
+                socket.emit("alert", `An entry for "${data.It}" already exists.`);
+            } else {
+                const id = await db.insertIntoPhrases(data.It, data.En, data.Cat, data.Comment);
+                socket.emit("create-phrase", id);
+            }
+        }
+    });
+
+    // Update a Phrase record (data must provide at least the ID)
+    socket.on("update-phrase", async data => {
+        await db.updatePhrase(data);
+    });
 }
 
 module.exports = { setupSocket };

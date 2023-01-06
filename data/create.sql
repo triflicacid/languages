@@ -63,3 +63,16 @@ CREATE TABLE IrregularVerbs (
     -- Gerund
     Gerund text
 );
+
+-- Table for phrases
+CREATE TABLE Phrases (
+    ID integer PRIMARY KEY AUTOINCREMENT,
+    -- Italian
+    It text,
+    -- English translation
+    En text,
+    -- Category(ies)
+    Cat text,
+    -- OPTIONAL comment
+    Comment text
+);

@@ -1,7 +1,7 @@
 const thead = document.querySelector("thead");
 const tbody = document.querySelector("tbody");
 const btnNew = document.getElementById("btn-new");
-var words;
+var phrases;
 
 function populateTBody(words) {
     tbody.innerHTML = "";
@@ -81,8 +81,8 @@ function populateTBody(words) {
     }
 }
 
-function searchWords(It, En, ItPlural, Gender, Class, Cat) {
-    let filtered = words.filter(word => {
+function searchPhrases(It, En, ItPlural, Gender, Class, Cat) {
+    let filtered = phrases.filter(word => {
         return (It ? word.It.indexOf(It) !== -1 : true) &&
             (En ? word.En.indexOf(En) !== -1 : true) &&
             (ItPlural ? (word.ItPlural || "").indexOf(ItPlural) !== -1 : true) &&
@@ -99,7 +99,7 @@ btnNew.addEventListener("click", () => {
 
 (function () {
     function search() {
-        searchWords(...inputs.map(e => e.value));
+        searchPhrases(...inputs.map(e => e.value));
     }
 
     const inputs = [];
@@ -121,8 +121,8 @@ btnNew.addEventListener("click", () => {
 
 const socket = io();
 socket.on("get-words", array => {
-    words = array;
-    populateTBody(words);
+    phrases = array;
+    populateTBody(phrases);
 });
 
 socket.emit("get-words");

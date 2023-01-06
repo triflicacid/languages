@@ -8,27 +8,29 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/styles/main.css">
     <script src="/scripts/main.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/socket.io/socket.io.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
     <div class="breadcrumbs">
         <a href="/">Home</a>
-        <a href="./">Admin</a>
+        <a href="./">Phrases</a>
+        <a>Test</a>
     </div>
     <div class="centre">
-        <h1 class="fancy-font">Administration</h1>
+        <h1 class="fancy-font">Italian Phrases Test</h1>
 
-        <p><a href="./listVocab.html">Vocab List</a></p>
-        <p><a href="./newVocab.html">Create Vocab Word</a></p>
-        <p><a href="./editVocab.html">Edit Vocab Word</a></p>
+        <div id="test-config"></div>
         <br>
-        <p><a href="./listPhrases.html">Phrase List</a></p>
-        <p><a href="./newPhrase.html">Create Phrase</a></p>
-        <p><a href="./editPhrase.html">Edit Phrase</a></p>
+
+        <div id="test-results"></div>
         <br>
-        <p><a href="./classes.html">Word Classes</a></p>
-        <p><a href="./categories.html">Word Categories</a></p>
+
+        <p>Accents: É, é, È, è, Ú, ú, Í, í, Ì, ì</p>
+        <div id="test-body"></div>
     </div>
+
+    <script src="/scripts/phraseTest.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>

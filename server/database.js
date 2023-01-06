@@ -159,10 +159,56 @@ async function updateIrregularVerb(data) {
     }
 }
 
+/** Get all phrases from Phrases */
+async function getPhrases() {
+    return await db.all("SELECT * FROM `Phrases`");
+}
+
+/** Get raw phrase info (as in database) */
+async function getPhraseRaw(ID) {
+    return await db.get("SELECT * FROM `Phrases` WHERE ID = ?", [ID]);
+}
+
+/** Get phrase by italian */
+async function getPhraseByItalian(italian) {
+    return await db.get("SELECT * FROM `Phrases` WHERE It = ?", [italian]);
+}
+
+/** Create new phrase entry: It: string, En: string[], Cat: number[], Comment: string. Returns ID, */
+async function insertIntoPhrases(It, En, Cat = [], Comment = "") {
+    return await db.run("INSERT INTO Phrases (It, En, Cat, Comment) VALUES (?, ?, ?, ?)", [It, En.join(","), Cat.join(","), Comment]);
+}
+
+/** Update Phrase record by providing its object record. If property is undefined, do not update it */
+async function updatePhrase(record) {
+    const queries = [], params = [];
+    if (record.It != undefined) {
+        queries.push("It = ?");
+        params.push(record.It);
+    }
+    if (record.En != undefined) {
+        queries.push("En = ?");
+        params.push(record.En);
+    }
+    if (record.Cat != undefined) {
+        queries.push("Cat = ?");
+        params.push(record.Cat);
+    }
+    if (record.Comment != undefined) {
+        queries.push("Comment = ?");
+        params.push(record.Comment);
+    }
+    if (queries.length !== 0) {
+        params.push(record.ID);
+        await db.run("UPDATE `Phrases` SET " + queries.join(", ") + " WHERE ID = ?", params);
+    }
+}
+
 module.exports = {
     db,
     getWordClasses, updateWordClass, deleteWordClass, createWordClass,
     getWordCategories, updateWordCategory, deleteWordCategory, createWordCategory,
     getWords, getWordByItalian, insertIntoVocab, getWordRaw, updateWord,
     getIrregularVerbInfo, createIrregularVerb, updateIrregularVerb, deleteIrregularVerb,
+    getPhrases, getPhraseRaw, getPhraseByItalian, insertIntoPhrases, updatePhrase,
 };
