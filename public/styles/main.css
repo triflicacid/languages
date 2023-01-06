@@ -60,6 +60,13 @@ a:not(.no-underline),
     text-decoration: underline;
 }
 
+a,
+a:visited,
+a:hover,
+a:active {
+    color: inherit;
+}
+
 a:hover,
 .link:hover {
     text-decoration: none;
