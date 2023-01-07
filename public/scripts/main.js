@@ -1,6 +1,7 @@
 var __speak_rate = 1;
 
 window.addEventListener("load", function () {
+    speechSynthesis.getVoices(); // Start population of voices
     setLinkTitles();
     setWindowTitle();
     loadBreadcrumbs();
@@ -60,6 +61,7 @@ function speak(text, lang = "it-IT") {
     let utter = new SpeechSynthesisUtterance(text);
     utter.lang = lang;
     utter.rate = __speak_rate;
+    utter.voice = speechSynthesis.getVoices().find(voice => voice.lang === lang);
     window.speechSynthesis.speak(utter);
 }
 
@@ -89,7 +91,7 @@ function loadSpeechSlider() {
     div.appendChild(desc);
     const input = document.createElement("input");
     input.type = "range";
-    input.min = "0";
+    input.min = "0.5";
     input.step = "0.1";
     input.max = "2";
     input.value = "1";
@@ -100,6 +102,10 @@ function loadSpeechSlider() {
     div.appendChild(input);
 }
 
-function removeSpaced(str) {
+function removeSpaces(str) {
     return str.replace(/\s+/g, '');
+}
+
+function removePunctuation(str) {
+    return str.replace(/[\.\?!,:;\-\[\]\(\)\{\}'"]/g, '');
 }

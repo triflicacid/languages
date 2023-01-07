@@ -44,7 +44,7 @@ function loadConfig() {
         const span = document.createElement("span");
         selectSpan.appendChild(span);
         if (selectCatCount !== 1) {
-            span.insertAdjacentHTML("beforeend", " &amp; ");
+            span.insertAdjacentText("beforeend", " or ");
         }
         const select = document.createElement("select");
         span.appendChild(select);
@@ -92,7 +92,7 @@ function loadConfig() {
     td.appendChild(checkboxShowPhrases);
     const checkboxShowCategory = document.createElement('input');
     checkboxShowCategory.type = 'checkbox';
-    checkboxShowCategory.checked = true;
+    checkboxShowCategory.checked = false;
     td.insertAdjacentHTML("beforeend", "| Word Category&nbsp;");
     td.appendChild(checkboxShowCategory);
 
@@ -109,7 +109,8 @@ function loadConfig() {
         const wordCat = Array.from(selectSpan.querySelectorAll("select")).map(e => +e.value).filter(n => !isNaN(n));
         const test = [], count = +inputPhraseCount.value;
         const available = allPhrases.filter(o => {
-            return (wordCat.length === 0 ? true : wordCat.filter(n => o.Cat.indexOf(n) === -1).length === 0);
+            // return (wordCat.length === 0 ? true : wordCat.filter(n => o.Cat.indexOf(n) === -1).length === 0);
+            return (wordCat.length === 0 ? true : o.Cat.some(c => wordCat.includes(c)));
         });
         while (test.length < count && available.length > 0) {
             const idx = Math.floor(Math.random() * available.length);
@@ -210,11 +211,11 @@ function populateTest(phrases, testType, allowSpeak = true, showWords = true, sh
             let ok = false;
             switch (testType) {
                 case TYPE_IT_EN:
-                    ok = word.En.some(en => removeSpaces(value) === removeSpaces(en));
+                    ok = word.En.some(en => removePunctuation(removeSpaces(value)) === removePunctuation(removeSpaces(en)));
                     break;
                 case TYPE_EN_IT:
                 case TYPE_IT_SPEECH:
-                    ok = removeSpaces(word.It) === removeSpaces(value);
+                    ok = removePunctuation(removeSpaces(word.It)) === removePunctuation(removeSpaces(value));
                     break;
                 case TYPE_GENDER:
                     ok = word.Gender === value;

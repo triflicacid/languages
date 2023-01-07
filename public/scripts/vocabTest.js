@@ -57,7 +57,7 @@ function loadConfig() {
         const span = document.createElement("span");
         selectSpan.appendChild(span);
         if (selectCatCount !== 1) {
-            span.insertAdjacentHTML("beforeend", " &amp; ");
+            span.insertAdjacentText("beforeend", " or ");
         }
         const select = document.createElement("select");
         span.appendChild(select);
@@ -105,7 +105,7 @@ function loadConfig() {
     td.appendChild(checkboxShowWords);
     const checkboxShowGender = document.createElement('input');
     checkboxShowGender.type = 'checkbox';
-    checkboxShowGender.checked = true;
+    checkboxShowGender.checked = false;
     td.insertAdjacentHTML("beforeend", "| Gender&nbsp;");
     td.appendChild(checkboxShowGender);
     const checkboxShowClass = document.createElement('input');
@@ -115,7 +115,7 @@ function loadConfig() {
     td.appendChild(checkboxShowClass);
     const checkboxShowCategory = document.createElement('input');
     checkboxShowCategory.type = 'checkbox';
-    checkboxShowCategory.checked = true;
+    checkboxShowCategory.checked = false;
     td.insertAdjacentHTML("beforeend", "| Word Category&nbsp;");
     td.appendChild(checkboxShowCategory);
 
@@ -134,7 +134,8 @@ function loadConfig() {
         const test = [], count = +inputWordCount.value;
         const available = allPhrases.filter(o => {
             return (wordClass === undefined ? true : o.Class.some(n => n === wordClass)) &&
-                (wordCat.length === 0 ? true : wordCat.filter(n => o.Cat.indexOf(n) === -1).length === 0);
+                // (wordCat.length === 0 ? true : wordCat.filter(n => o.Cat.indexOf(n) === -1).length === 0);
+                (wordCat.length === 0 ? true : o.Cat.some(c => wordCat.includes(c)));
         });
         while (test.length < count && available.length > 0) {
             const idx = Math.floor(Math.random() * available.length);
@@ -268,11 +269,11 @@ function populateTest(words, testType, allowSpeak = true, showWords = true, show
             switch (testType) {
                 case TYPE_IT_EN:
                     // ok = word.En.some(en => en === value);
-                    ok = word.En.some(en => removeSpaces(en) === removeSpaces(value));
+                    ok = word.En.some(en => removePunctuation(removeSpaces(en)) === removePunctuation(removeSpaces(value)));
                     break;
                 case TYPE_EN_IT:
                 case TYPE_IT_SPEECH:
-                    ok = removeSpaces(word.It) === removeSpaces(value);
+                    ok = removePunctuation(removeSpaces(word.It)) === removePunctuation(removeSpaces(value));
                     break;
                 case TYPE_GENDER:
                     ok = word.Gender === value;
