@@ -91,6 +91,7 @@ socket.on("get-phrase-raw", obj => {
     if (obj == null) {
         ok = false;
         alert(`No phrase found for the given query -- '${query}'.`);
+        window.location.href = "./";
     } else {
         ID = obj.ID;
         ok = true;

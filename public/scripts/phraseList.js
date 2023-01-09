@@ -55,7 +55,8 @@ function searchPhrases(It, En, Cat) {
     let filtered = phrases.filter(word => {
         return (It ? word.It.indexOf(It) !== -1 : true) &&
             (En ? word.En.indexOf(En) !== -1 : true) &&
-            (Cat.length === 0 ? true : Cat.filter(n => word.Cat.indexOf(n) === -1).length === 0);
+            // (Cat.length === 0 ? true : Cat.filter(n => word.Cat.indexOf(n) === -1).length === 0);
+            (Cat.length === 0 ? true : word.Cat.some(c => Cat.includes(c)));
     });
     populateTBody(filtered);
 }
@@ -112,7 +113,7 @@ function loadTHead() {
         const span = document.createElement("span");
         selectSpan.appendChild(span);
         if (selectCatCount !== 1) {
-            span.insertAdjacentHTML("beforeend", " &amp; ");
+            span.insertAdjacentText("beforeend", " or ");
         }
         const select = document.createElement("select");
         span.appendChild(select);

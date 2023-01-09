@@ -69,14 +69,15 @@ function populateTBody(words) {
     }
 }
 
-function searchPhrases(It, En, Gender, Class, Cat) {
+function searchWords(It, En, Gender, Class, Cat) {
     Cat = Cat.filter(x => !isNaN(x));
     let filtered = phrases.filter(word => {
         return (It ? word.It.indexOf(It) !== -1 : true) &&
             (En ? word.En.indexOf(En) !== -1 : true) &&
             (Class ? word.Class.some(c => c === Class) : true) &&
             (Gender === undefined ? true : Gender === word.Gender) &&
-            (Cat.length === 0 ? true : Cat.filter(n => word.Cat.indexOf(n) === -1).length === 0);
+            // (Cat.length === 0 ? true : Cat.filter(n => word.Cat.indexOf(n) === -1).length === 0);
+            (Cat.length === 0 ? true : word.Cat.some(c => Cat.includes(c)));
     });
     populateTBody(filtered);
 }
@@ -104,7 +105,7 @@ function loadTHead() {
     }
 
     function search() {
-        searchPhrases(
+        searchWords(
             inputIt.value,
             inputEn.value,
             selectGender.value === '-' ? undefined : selectGender.value,
@@ -156,7 +157,7 @@ function loadTHead() {
         const span = document.createElement("span");
         selectSpan.appendChild(span);
         if (selectCatCount !== 1) {
-            span.insertAdjacentHTML("beforeend", " &amp; ");
+            span.insertAdjacentText("beforeend", " or ");
         }
         const select = document.createElement("select");
         span.appendChild(select);
@@ -200,7 +201,7 @@ socket.on("get-word-classes", array => {
     incRecieved();
 });
 socket.on("get-word-categories", array => {
-    wordCategories = array.sort((a, b) => a.Name.localeCompare(b.Name));;
+    wordCategories = array.sort((a, b) => a.Name.localeCompare(b.Name));
     incRecieved();
 });
 socket.on("get-words", array => {

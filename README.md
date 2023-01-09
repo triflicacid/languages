@@ -5,5 +5,4 @@ This repository contains a server which hosts material to aid in the teaching of
 The server may be started by `npm start` or `node server/main.js [PORT]` and will listen on `http://localhost:[PORT]`. Note that the server is only required for certain pages; other static HTML pages may be viewed without the server being active.
 
 ## TODO
-- Automatic plural generator for any given word. Include column "PluralID" in DB for irregular plurals.
 - Automatic article generation for a given word (la, le, il, il, l', lo, gli)

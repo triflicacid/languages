@@ -155,6 +155,7 @@ socket.on("get-word-raw", obj => {
     if (obj == null) {
         ok = false;
         alert(`No word found for the given query -- '${query}'.`);
+        window.location.href = "./";
     } else {
         ID = obj.ID;
         ok = true;
