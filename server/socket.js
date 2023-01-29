@@ -64,10 +64,18 @@ function setupSocket(socket) {
     });
 
     // Italian: check if word entry exists
-    socket.on("check-it-exists", async (it) => {
+    socket.on("word-exists", async (it) => {
         const exist = await db.getWordByItalian(it);
         if (exist) {
-            socket.emit("alert", `An entry for "${it}" already exists.`);
+            socket.emit("word-exists", it);
+        }
+    });
+
+    // Italian: check if phrase entry exists
+    socket.on("phrase-exists", async (it) => {
+        const exist = await db.getPhraseByItalian(it);
+        if (exist) {
+            socket.emit("phrase-exists", it);
         }
     });
 

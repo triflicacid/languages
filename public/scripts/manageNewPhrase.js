@@ -26,9 +26,14 @@ socket.on("get-word-categories", array => {
     }
 });
 
+socket.on("phrase-exists", it => {
+    alert(`An entry for ${it} already exists.`);
+    inputIt.select();
+});
+
 inputIt.addEventListener("change", () => {
     const it = inputIt.value.trim();
-    if (it) socket.emit("check-it-exists", it);
+    if (it) socket.emit("phrase-exists", it);
 });
 
 selectCategories.addEventListener("change", () => {

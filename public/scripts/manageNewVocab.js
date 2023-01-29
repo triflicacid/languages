@@ -33,10 +33,14 @@ socket.on("get-word-categories", array => {
         selectCategories.insertAdjacentHTML("beforeend", `<option value='${klass.ID}'>${klass.Name}</option>`);
     }
 });
+socket.on("word-exists", it => {
+    alert(`An entry for ${it} already exists.`);
+    inputIt.select();
+});
 
 inputIt.addEventListener("change", () => {
     const it = inputIt.value.trim();
-    if (it) socket.emit("check-it-exists", it);
+    if (it) socket.emit("word-exists", it);
 });
 
 selectClasses.addEventListener("change", () => {
