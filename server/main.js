@@ -1,7 +1,7 @@
 const express = require('express');
 const { Server } = require('socket.io');
 const { terminate } = require('./utils.js');
-const { db } = require('./database.js');
+const { db } = require('./it/database.js');
 const { setupSocket } = require('./socket.js');
 
 (async function main() {

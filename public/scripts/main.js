@@ -1,13 +1,45 @@
 var __speak_rate = 1;
+const codes = {
+    "gb": {
+        name: "English",
+        lang: "en-GB",
+    },
+    "it": {
+        name: "Italian",
+        lang: "it-IT",
+    },
+    "sv": {
+        name: "Swedish",
+        lang: "sv-SE"
+    },
+};
+
+const COUNTRY_CODE = (function() {
+    const parts = location.href.split('/');
+    return parts[3] in codes ? parts[3] : undefined;
+})();
 
 window.addEventListener("load", function () {
+    document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="/styles/variables.css">`);
+    document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="/styles/general.css">`);
+
+    if (COUNTRY_CODE) {
+        document.body.dataset.code = COUNTRY_CODE;
+        document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="/styles/${COUNTRY_CODE}.css">`);
+    }
+
+    document.head.insertAdjacentHTML("beforeend", `<link rel="shortcut icon" href="${COUNTRY_CODE == undefined ? "/earth" : "/" + COUNTRY_CODE + "/favicon"}.ico" type="image/x-icon">`);
+    
     speechSynthesis.getVoices(); // Start population of voices
     setLinkTitles();
     setWindowTitle();
     loadBreadcrumbs();
     seperateSections();
-    loadSpeakText();
-    loadSpeechSlider();
+    
+    if (COUNTRY_CODE) {
+        loadSpeakText();
+        loadSpeechSlider();
+    }
 });
 
 // Insert breaks between <section/> in main content
@@ -17,7 +49,7 @@ function seperateSections() {
         const sections = div.querySelectorAll("section");
         let i = 0;
         for (const section of sections) {
-            if (i < sections.length - 1) section.insertAdjacentHTML("afterend", "<hr/>");
+            if (i < sections.length - 1) section.insertAdjacentHTML("afterend", "<hr>");
             i += 1;
         }
     }
@@ -31,7 +63,7 @@ function setWindowTitle() {
         for (const link of links) items.push(link.innerText);
         items.shift();
     }
-    document.title = "Italian" + (items.length === 0 ? "" : " | " + items.join(" | "));
+    document.title = (COUNTRY_CODE == undefined ? "MFL" : codes[COUNTRY_CODE].name) + (items.length === 0 ? "" : " | " + items.join(" | "));
 }
 
 // Set <a/> title to its href if unset
@@ -56,7 +88,9 @@ function loadBreadcrumbs() {
     }
 }
 
-function speak(text, lang = "it-IT") {
+function speak(text, lang = undefined) {
+    if (lang == undefined) lang = codes[COUNTRY_CODE].lang;
+
     window.speechSynthesis.cancel();
     let utter = new SpeechSynthesisUtterance(text);
     utter.lang = lang;

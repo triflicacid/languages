@@ -1,4 +1,4 @@
-const db = require('./database.js');
+const db = require('./it/database.js');
 
 /** Set=up socket event listeners */
 function setupSocket(socket) {

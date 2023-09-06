@@ -1,0 +1,17 @@
+body {
+    --primary-color: #959595;
+    --secondary-color: #545454;
+    --text-color: white;
+}
+
+body[data-code="it"] {
+    --primary-color: #009346;
+    --secondary-color: #D02D34;
+    --text-color: white;
+}
+
+body[data-code="sv"] {
+    --primary-color: #F5C806;
+    --secondary-color: #006AA7;
+    --text-color: black;
+}
