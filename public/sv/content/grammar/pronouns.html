@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="breadcrumbs">
+        <a href="../../">Home</a>
+        <a href="./">Grammar</a>
+        <a>Pronouns</a>
+    </div>
+    <div class="indent main">
+        <div class="centre">
+            <h1 class="fancy-font">Pronouns</h1>
+        </div>
+
+        <section>
+            <table class="border">
+                <thead>
+                    <tr>
+                        <th colspan="4">Singular</th>
+                        <th colspan="4">Plural</th>
+                    </tr>
+                    <tr>
+                        <th>Person</th>
+                        <th>Nominative</th>
+                        <th>Objective</th>
+                        <th>Possesive (com/neut/pl)</th>
+                        <th>Person</th>
+                        <th>Nominative</th>
+                        <th>Objective</th>
+                        <th>Possesive (com/neut/pl)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1st</th>
+                        <td><span>jag</span></td>
+                        <td><span>mig</span></td>
+                        <td><span>min</span>, <span>mitt</span>, <span>mina</span></td>
+                        <th>1st</th>
+                        <td><span>vi</span></td>
+                        <td><span>oss</span></td>
+                        <td><span>vår</span>, <span>vårt</span>, <span>våra</span></td>
+                    </tr>
+                    <tr>
+                        <th>2nd</th>
+                        <td><span>du</span></td>
+                        <td><span>dig</span></td>
+                        <td><span>din</span>, <span>ditta</span>, <span>dina</span></td>
+                        <th>2nd</th>
+                        <td><span>ni</span></td>
+                        <td><span>er</span></td>
+                        <td><span>er</span>, <span>ert</span>, <span>era</span>, <span>ers</span>*</td>
+                    </tr>
+                    <tr>
+                        <th>3rd masculine</th>
+                        <td><span>han</span></td>
+                        <td><span>honom</span></td>
+                        <td><span>hans</span></td>
+                        <th rowspan="5">3rd</th>
+                        <td rowspan="5"><span>de</span></td>
+                        <td rowspan="5"><span>dem</span></td>
+                        <td rowspan="5"><span>deras</span></td>
+                    </tr>
+                    <tr>
+                        <th>3rd feminine</th>
+                        <td><span>hon</span></td>
+                        <td><span>henne</span></td>
+                        <td><span>hennes</span></td>
+                    </tr>
+                    <tr>
+                        <th>3rd common</th>
+                        <td colspan="2"><span>den</span></td>
+                        <td rowspan="2"><span>dess</span></td>
+                    </tr>
+                    <tr>
+                        <th>3rd neuter</th>
+                        <td colspan="2"><span>det</span></td>
+                    </tr>
+                    <tr>
+                        <th>3rd indefinite ("one")</th>
+                        <td><span>man</span></td>
+                        <td><span>en</span></td>
+                        <td><span>ens</span></td>
+                    </tr>
+                    <tr>
+                        <th>3rd reflexive**</th>
+                        <td>-</td>
+                        <td><span>sig</span></td>
+                        <td><span>sin</span>, <span>sitt</span>, <span>sina</span></td>
+                        <th>3rd reflexive</th>
+                        <td>-</td>
+                        <td><span>sig</span></td>
+                        <td><span>sin</span>, <span>sitt</span>, <span>sina</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>(*) <em>Ers</em> is used honorifically e.g., <em class="speak">Ers Majestät</em> (your grace)</p>
+            <p>(**) The first and second persons have no reflexive form, thought one may use <em class="speak">själv</em> (self) and <em><span class=speak>egen</span>/<span class="speak">eget</span>/<span class="speak">egna</span></em> (own) for emphasis.</p>
+        </section>
+    </div>
+
+    <script type="text/javascript">
+        for (const span of document.querySelectorAll("table.border span")) {
+            span.classList.add("speak");
+        }
+    </script>
+    <script src="/scripts/main.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
