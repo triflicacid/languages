@@ -151,7 +151,7 @@ function removePunctuation(str) {
 function connectToSocket() {
     return io({
         query: {
-            url: window.location.href,
+            url: window.location.href.replace(location.origin, ''),
             code: COUNTRY_CODE
         }
     });

@@ -1,9 +1,7 @@
-const { db: it } = require("./it/database.js");
-const { db: la } = require("./la/database.js");
-
 module.exports = {
     databases: {
-        it,
-        la
+        it: require("./it/database.js").db,
+        la: require("./it/database.js").db,
+        sv: require("./sv/database.js").db,
     }
 };

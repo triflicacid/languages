@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/scripts/main.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/socket.io/socket.io.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class="breadcrumbs">
+        <a href="../">Home</a>
+        <a href="./">Management</a>
+        <a>List Vocab</a>
+    </div>
+    <div class="centre">
+        <h1 class="fancy-font">Swedish Vocabulary</h1>
+
+        <div>
+            <table class="border">
+                <thead>
+                    <tr>
+                        <th>Svenska</th>
+                        <th>Engelsk</th>
+                        <th>Plural</th>
+                        <th>Gender</th>
+                        <th>Word Class</th>
+                        <th>Tags</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <button id="btn-new">+ New</button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <script src="/scripts/sv/manageListVocab.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

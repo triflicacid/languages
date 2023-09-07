@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/scripts/main.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/socket.io/socket.io.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class="breadcrumbs">
+        <a href="../">Home</a>
+        <a href="./">Management</a>
+        <a>New Vocab</a>
+    </div>
+    <div class="centre">
+        <h1 class="fancy-font">Insert New Word</h1>
+
+        <div>
+            <p>
+                <span>Italian Word: </span>
+                <input id="inp-sv" placeholder="Svenska" />
+                <span>pl.</span>
+                <input id="inp-pl" placeholder="Plural Svenska" />
+            </p>
+            <p>
+                <span><abbr title="Comma-seperated">English Translation(s)</abbr>: </span>
+                <input id="inp-en" placeholder="Engelsk" />
+            </p>
+            <p>
+                <span>Gender: </span>
+                <select id="sel-gender">
+                    <option value="">-</option>
+                    <option value="C">Common</option>
+                    <option value="N">Neuter</option>
+                </select>
+            </p>
+            <p>
+                <span>Word Class (comma seperated): </span>
+                <input id="inp-class"></input>
+            </p>
+            <p>
+                <span>Word Tags (comma seperated): </span>
+                <input id="inp-tags"></input>
+            </p>
+            <p>
+                <span>Comment: </span>
+                <textarea id="txt-comment" rows="15" cols="42"></textarea>
+            </p>
+
+            <br>
+            <button id="btn-create">Create</button>
+        </div>
+
+        <p><em>Press <kbd>ctrl + Enter</kbd> to insert the word</em></p>
+    </div>
+    <script src="/scripts/sv/manageNewVocab.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
