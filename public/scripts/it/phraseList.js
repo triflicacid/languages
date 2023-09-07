@@ -144,7 +144,7 @@ function loadTHead() {
     tr.appendChild(td);
 }
 
-const socket = io();
+const socket = connectToSocket();
 
 var _recv = 0;
 function incRecieved() {

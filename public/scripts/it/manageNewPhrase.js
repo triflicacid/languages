@@ -7,7 +7,7 @@ const btnCreate = document.getElementById("btn-create");
 const classes = new Set(), categories = new Set();
 var wordClasses, wordCategories;
 
-const socket = io();
+const socket = connectToSocket();
 socket.on("get-word-classes", array => {
     selectClasses.innerHTML = "";
     wordClasses = array.sort((a, b) => a.Name.localeCompare(b.Name));

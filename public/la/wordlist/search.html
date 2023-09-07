@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/scripts/main.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/socket.io/socket.io.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="search()">
+    <div class="breadcrumbs">
+        <a href="../">Home</a>
+        <a href="./">Wordlist</a>
+        <a>Search</a>
+    </div>
+    <div class="centre">
+        <div class="top" style="left: 47%!important;">
+            <a href="#top">Top</a> |
+            <a href="#bottom">Bottom</a>
+        </div>
+        <br>
+        <h1 class="title">Latin OCR Worlist (1-9)</h1>
+        <input type="text" placeholder="Query" id="search_query" onkeyup="search()" autofocus><span
+            onclick="searchClear()" class="close_span">&times;</span> Using The <select id="search_using"
+            onchange="search()">
+            <option value="word">Latin Word</option>
+            <option value="translation">English Translation</option>
+        </select>
+        <br>
+        Search by Word Class:&nbsp;
+        <select id="word_type" onchange="search()">
+            <option value="any">All types</option>
+            <optgroup label="Well-Known">
+                <option value="verb%">All Verbs</option>
+                <option value="adverb">Adverbs</option>
+                <option value="adjective">Adjectives</option>
+                <option value="noun%">All Nouns</option>
+                <option value="pronoun">Pronouns</option>
+                <option value="">Anonymous (none)</option>
+            </optgroup>
+            <optgroup label="Obscure">
+                <option value="conjunction">Conjunctions</option>
+                <option value="preposition">Prepositions</option>
+            </optgroup>
+            <optgroup label="Rare">
+                <option value="prefix">Prefixes</option>
+                <option value="particle">Particles</option>
+
+            </optgroup>
+            <optgroup label="Verbs">
+                <option value="verb%">All Verbs</option>
+                <option value="verb 1">Verb 1</option>
+                <option value="verb 2">Verb 2</option>
+                <option value="verb 3">Verb 3</option>
+                <option value="verb irregular">Irregular Verbs</option>
+                <option value="%deponent">Deponent Verbs</option>
+            </optgroup>
+            <optgroup label="Nouns">
+                <option value="noun%">All Nouns</option>
+                <option value="noun 1">Noun 1</option>
+                <option value="noun 2">Noun 2</option>
+                <option value="noun 3">Noun 3</option>
+                <option value="noun 4">Noun 4</option>
+                <option value="noun 5">Noun 5</option>
+                <option value="noun irregular">Irregular Nouns</option>
+            </optgroup>
+        </select>
+        <br>
+        Search In: <select id="search_db" onchange="search()">
+            <option value="DVL">DVL</option>
+            <option value="RVL_eng_latin">RVL (english &rarr; latin)</option>
+            <option value="RVL_latin_eng">RVL (latin &rarr; english)</option>
+        </select>
+        <br>
+        Order Results By <select id="search_order" onchange="search()">
+            <option value="type">Word Type</option>
+            <option value="random">Randomised</option>
+            <option value="alpha_latin">Alphabetically (Latin)</option>
+            <option value="alpha_eng">Alphabetically (English)</option>
+        </select>
+        
+        <div id="result_output"></div>
+        <br>
+        <a id="bottom"></a>
+    </div>
+    <script src="/scripts/la/searchWordlist.js"></script>
+</body>
+
+</html>

@@ -29,7 +29,7 @@ function load(phrase) {
     sect.insertAdjacentHTML("beforeend", "<hr>");
 }
 
-const socket = io();
+const socket = connectToSocket();
 socket.on("get-phrase-info", info => {
     load(info);
 });

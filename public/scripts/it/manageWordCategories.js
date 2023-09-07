@@ -53,7 +53,7 @@ function populateTable(cats) {
     tbody.appendChild(tr);
 }
 
-const socket = io();
+const socket = connectToSocket();
 socket.on("get-word-categories", array => {
     wordCats = array;
     populateTable(array);

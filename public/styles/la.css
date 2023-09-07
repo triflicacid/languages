@@ -1,0 +1,152 @@
+img:not(.o) {
+    height: 200px !important;
+    width: 220px !important;
+}
+
+img.main {
+    height: 200px;
+    width: 220px;
+}
+
+.top {
+    text-align: center;
+    background-color: #d300d9;
+    font-size: 105%;
+    position: fixed;
+    margin-top: none;
+    left: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.top:hover {
+    background-color: #fb59ff;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.top a {
+    font-weight: bold;
+}
+
+.top a:hover {
+    text-decoration: none;
+}
+
+a.no {
+    text-decoration: line-through;
+}
+
+a.no:before {
+    content: "Not Exist: ";
+}
+
+a.no:hover {
+    text-decoration: line-through !important;
+    color: purple !important;
+}
+
+ul:not(.norm) {
+    list-style-type: lower-roman;
+}
+
+pre {
+    font: inherit;
+}
+
+.title {
+    color: var(--primary-color);
+    padding: 5px;
+    margin: 5px;
+    border-bottom: 2px solid var(--primary-color);
+    border-bottom-width: 95%;
+}
+
+imp {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-style: italic;
+    border: none !important;
+}
+
+.mail {
+    text-decoration: underline;
+    color: purple !important;
+    font-weight: bold;
+}
+
+.mail:hover {
+    color: var(--primary-color) !important;
+    background-color: #dddddd !important;
+}
+
+table.list {
+    border: 2px solid black;
+}
+
+table.list th {
+    background-color: pink;
+    font-weight: bold;
+    padding: 10px;
+}
+
+table.list td {
+    border: 1px solid black;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.rbut {
+    box-shadow: 2px 3px solid rgba(0, 0, 0, 0.2);
+    background-color: #d300d9 !important;
+    border-radius: 3px;
+    color: black;
+}
+
+.rbut:hover {
+    box-shadow: 2px 3px solid rgba(0, 0, 0, 0.4);
+    background-color: pink !important;
+}
+
+body {
+    font-family: arial;
+}
+
+.settings {
+    text-align: center;
+    background-color: rgba(135, 0, 200, 0.4) !important;
+    box-shadow: 5px 4px rgba(100, 0, 185, 0.2) !important;
+    margin: 20px;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.settings button,
+.settings input,
+.settings select {
+    border-radius: 3px;
+    background-color: rgba(110, 0, 175, 0.4) !important;
+    box-shadow: 5px 4px rga(130, 0, 145, 0.2) !important;
+    color: white !important;
+    transition: background-color 0.2s, box-shadow 0.15s;
+}
+
+.settings button:hover,
+.settings input:hover,
+.settings select:hover {
+    background-color: rgba(98, 0, 160, 0.7) !important;
+    box-shadow: 5px 4px rgba(130, 0, 145, 0.4) !important;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.close_span {
+    color: red;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.close_span:hover {
+    cursor: pointer;
+    color: crimson;
+}

@@ -86,7 +86,7 @@ btnNew.addEventListener("click", () => {
     for (let i = 0; i < 3; i++) addCol();
 })();
 
-const socket = io();
+const socket = connectToSocket();
 socket.on("get-phrases", array => {
     phrases = array;
     populateTBody(phrases);

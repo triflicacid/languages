@@ -147,3 +147,12 @@ function removeSpaces(str) {
 function removePunctuation(str) {
     return str.replace(/[\.\?!,:;\-\[\]\(\)\{\}'"]/g, '');
 }
+
+function connectToSocket() {
+    return io({
+        query: {
+            url: window.location.href,
+            code: COUNTRY_CODE
+        }
+    });
+}

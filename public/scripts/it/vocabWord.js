@@ -205,7 +205,7 @@ function load(word) {
     }
 }
 
-const socket = io();
+const socket = connectToSocket();
 socket.on("get-word-info", info => {
     load(info);
 });

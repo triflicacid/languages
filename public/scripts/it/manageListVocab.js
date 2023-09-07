@@ -119,7 +119,7 @@ btnNew.addEventListener("click", () => {
     for (let i = 0; i < 6; i++) addCol();
 })();
 
-const socket = io();
+const socket = connectToSocket();
 socket.on("get-words", array => {
     phrases = array;
     populateTBody(phrases);

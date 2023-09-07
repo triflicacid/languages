@@ -314,7 +314,7 @@ function populateTest(words, testType, allowSpeak = true, showWords = true, show
 }
 
 // Socket
-const socket = io();
+const socket = connectToSocket();
 
 var _recv = 0;
 function incRecieved() {

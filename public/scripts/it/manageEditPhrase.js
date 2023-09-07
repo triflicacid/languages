@@ -10,7 +10,7 @@ document.getElementById("btn-back").addEventListener("click", () => {
     window.history.back();
 });
 
-const socket = io();
+const socket = connectToSocket();
 socket.on("get-word-classes", array => {
     selectClasses.innerHTML = "";
     wordClasses = array;

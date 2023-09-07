@@ -15,7 +15,7 @@ const divIrregVerb = document.getElementById("div-irregular-verb");
 divIrregVerb.setAttribute("hidden", "hidden");
 var irregVerbID;
 
-const socket = io();
+const socket = connectToSocket();
 socket.on("get-word-classes", array => {
     selectClasses.innerHTML = "";
     wordClasses = array.sort((a, b) => a.Name.localeCompare(b.Name));
