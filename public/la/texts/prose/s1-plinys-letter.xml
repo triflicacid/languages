@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+	<title>Pliny Section 1 :: Pliny's Letter</title>
+	<doclinks>
+		<link>
+			<url>s1-trajans-reply.xml</url>
+			<text>See Trajan's Reply To This Letter</text>
+		</link>
+	</doclinks>
+	<line>
+		<number>1</number>
+		<latin>quia confido, domine, ad curam tuam pertinere, ...</latin>
+		<english>Because I am confident, master, that it is of concern for you, ...</english>
+		<notes>
+			<title>Pliny's relationship with the Emperor:</title>
+			<point><main>`domine` (master) </main><text>suggests/shows that Pliny holds the Emperor in high esteem. This is a term of respectful reverence.</text></point>
+			<point><main>The fact that Pliny knows that his journey is a source of concern for Trajan </main><text>(`curam`) indicates a close relationship between them, and a privilaged position for the author.</text></point>
+		</notes>
+	</line>
+	<line>
+		<number>2</number>
+		<note>This is a continuation of the line above</note>
+		<latin>... nuntio tibi me Ephesum cum omnibus meis hyper Malean navigasse quamvis contrariis ventis retentum</latin>
+		<english>I am reporting to you that I have sailed around Cape Malea, with all my men, to Ephesus, although I was held back by contrary winds</english>
+		<notes>
+			<point><main>hyper malean: </main><text>this is Greek - Pliny is showing off his learning to Trajan. He also shows that he is familiar with the language of a part of Trajan's empire. This makes him a valuable member of the Imperial Team.</text></point>
+			<point><main>nuntio tibi: </main><text> (I report to you) This is professional, even pompous, in tone. Pliny makes himself seem `grand` in Trajan's eyes</text></point>
+			<point><main>quamvis retentum: </main><text>(However I was held back) He says that he has reached his goal despite advers conditions - this shows his resilience to Trajan, that he will persevere and get the work done</text></point>
+			<point><main>Ephesus: </main><text>(Google it, visit it!) A very important Roman town. Sites of interest include the library of Celus and the Temple of Artemis (one of the seven wonders)</text></point>
+		</notes>
+	</line>
+	<line>
+		<number>3</number>
+		<latin>Nunc destino partim orariis navibus, partim vehiculis provinciam petere</latin>
+		<english>Now I decide to seek my province partly with coastal ships, partly with land vehicles</english>
+		<notes>
+			<point><main>destino (decide): </main><text>Present tense. A way to add emphasis. Also lets Trajan into Pliny's current thinking</text></point>
+			<point><main>orariis navibus: </main><text>(coastal boats) A safer option than striking out accross the open sea with difficult northely winds blowinf into your bows (coastal boats a designed to hug the coast)</text></point>
+			<point><main>Plosives: </main><text>(harsh sounds [EG: p, b]) Repeated `p` sound may be a reflection of someone being puffed out and tired during an ardous journey</text></point>
+		</notes>
+	</line>
+	<line>
+		<number>4</number>
+		<latin>Nam sicut itineri graves aestus, ita continuae navigationi etesiae reluctantur</latin>
+		<english>For just as the oppresive heat, the continous northerly winds slow down my sea voyage</english>
+		<notes>
+			<point><main>graves aestus: </main><text>oppresive heat - the Mediterranean in August (time of Pliny's travels) can reach 50 degrees celcius, and this makes travelling VERY uncomfortable. Also, the horses and crew need a lot of water and rest.</text></point>
+			<point><main>continuae etesiae: </main><text>The relentless northerly winds make sailing impossible, so they cannot make progress</text></point>
+			<point><main>sicut...ita: </main><text>'just as...so' - this perfectly encapsulates the dilemma (Greek for `two horns`) - horrendous to travel on land, impossible to progress by sea (between a rock and a hard place...)</text></point>
+		</notes>
+	</line>
+</page>

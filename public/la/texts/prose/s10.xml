@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+	<title>Section 10 Livy: Hannibal Crosses The Alps</title>
+	<doclinks>
+		<link>
+			<url>s9.xml</url>
+			<text>Hannibal crosses the Alps: Section IX</text>
+		</link>
+		<link>
+			<url>s11.xml</url>
+			<text>Hannibal crosses the Alps: Section XI</text>
+		</link>
+	</doclinks>
+	
+	<line>
+		<number>1</number>
+		<latin>tandem nequiquam iumentis atque hominibus fatigatis castra in iugo posita, aegerrime ad id ipsum loco purgato; tantum nivis fodiendum atque egerendum fuit</latin>
+		<english>At last, with the men and baggage animals exhausted in vain, a camp was placed on the ridge, with the place having been cleared put with great difficulty for this purpose; for s great (a quantity) of snowhad to be dug put and removed.</english>
+		<notes>
+			<point>
+				<main>nequiquam: </main>
+				<text>(pointlessly) The men have tried and failed to find a way down the mountain. Painful conditions (difficult conditions and not much air) mean that they have to manage their food/water carefully, and this pointless task has consumed much of this</text>
+			</point>
+			<point>
+				<main>ABlative absolutes: </main>
+				<text>"hominibus fatigatis" and "loco purgato"; the ablative absolutes often reflect an economy of effort (not waste words) - not waste energy??</text>
+			</point>
+			<point>
+				<main>aegerrime: </main>
+				<text>The superlative form of the adverb "aegre" meaning 'tired/ill' highlights the challenging situation the men find themselves in</text>
+			</point>
+			<point>
+				<main>tantum: </main>
+				<text>(such a great) The intensifier helps us appreciate the scale of the work</text>
+			</point>
+			<point>
+				<main>fodiendum, egerendum: </main>
+				<text>These are gerundived. Gerundives are Passive Obligation Adjectives and they are used to express what has been done by someone. These gerundives highlight what the soldiers must do to survive. They are running out of options...</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>2</number>
+		<latin>inde ad rupem muniendam per quam unam via esse poterat milites ducti, cum cadendum esset saxum,</latin>
+		<english>The soldiers were instructed to make a pathway through the the one place a path was able to be (there was only one place they could make a path), and since (so) the rock has to be split,</english>
+		<notes>
+			<point>
+				<main>muniendam, cadendum: </main>
+				<text>More gerundives expressing how much work the exhausted soldierd have to do</text>
+			</point>
+			<point>
+				<main>per quam unam via: </main>
+				<text>The only place it is possible for a path - limited options for progress/survival emphasised by Livy, as well as the desperation of the men</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>3</number>
+		<latin>arborius circa immanibus deictis detruncatisque struem ingentem lignorum faciunt eamque,</latin>
+		<english>with huge trees having been cut down and chopped up, they make an enormous pile of logs and set fire to it,</english>
+		<notes>
+			<point>
+				<main>deictis detruncatisque: </main>
+				<text>(literally 'detruncked) these two PPPs perhap onomatopoeically echo the noise of the chopping/felling</text>
+			</point>
+			<point>
+				<main>immanibus, ingentem: </main>
+				<text>(huge...) again highlighting the scale of the job and the amount of work that they have to do</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>4</number>
+		<latin>cum et vis venti apta faciendo igni coorta esset, succeendunt ardentiaque saxa infuso aceto putrefaciunt</latin>
+		<english>Whe the force of the wind has risen up enough for the making of fire, they set fire to the pile of logs and broke (cracked) the rocks open with vinegar, having poured vinegar over them</english>
+		<notes>
+			<point>
+				<main>aceta (vinegar): </main>
+				<text>Someone on Hannibal's team knew that this worked. Hannibal finds an ingenious scientific solution to a military problem and gets them out of trouble, again.</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>5</number>
+		<latin>ita torridam incendio rupem ferro pandunt molliuntque anfractibus modicis clivos ut non iumenta solum sed elephanti etiam deduci possent</latin>
+		<english>In this way they opened yp the rock that was hot from the fire and with their iron tools they made the gradient less steep by means of small zigzags, with the result that not only baggage animals but even the elephants could be led down</english>
+		<notes>
+			<point>
+				<main>anfractibus modicis: </main>
+				<text>The "little zigzags" (after which the ZigZag guide is named) are made possible by the splitting of the rocks. They have persevered, and now may suceed.</text>
+			</point>
+			<point>
+				<main>pandunt, molliunt: </main>
+				<text>These juxtaposed verbs "opening", "softening" highlight the resolving of a difficult problem.</text>
+			</point>
+			<point>
+				<main>non solum ... sed etiam: </main>
+				<text>(not only this ... but this); serves to emphasise the point above, and how successful they were with the solution, so that evan ELEPHANTS could easily get down.</text>
+			</point>
+		</notes>
+	</line>
+</page>

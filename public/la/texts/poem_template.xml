@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- - Use this code to load the XML stylesheet:
+- <?xml-stylesheet type="text/xsl" href="style.xsl"?> -->
+<page>
+	<title>Aeneid: lines x-x</title>
+	<doclinks>
+		<!-- Document LInks to other pages -->
+		<link> <!-- Each link will be surrounded by <link> -->
+			<url>URL to go to</url>
+			<text>Link text to display</text>
+		</link>
+	</doclinks>
+	
+	<section>
+		<!-- Each lsection of lines will be encased in <section> -->
+		<number>Section Number</number>
+		<note>Lines x-x</note>
+		<latin>Latin Text (newlines seperated by '//')</latin>
+		<english>English translation</english>
+		<notes>
+			<title>Header for notes</title>
+			<!-- Contains line notes -->
+			<point>
+				<!-- Starts a bullet point. To start a new bullet point, add another <point> -->
+				<main>Focus of point</main>
+				<text>Explanation</text>
+			</point>
+		</notes>
+	</section>
+	
+</page>

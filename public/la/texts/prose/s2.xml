@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+	<title>Pliny Section 2 :: Pliny's Letter</title>
+	<doclinks>
+		<link>
+			<url>../../roman_dates.html</url>
+			<text>About Roman Dates</text>
+		</link>
+	</doclinks>
+	<line>
+		<number>1</number>
+		<latin>sicut saluberrimam navigationem, domine, usque Ephesum expertus ita inde, postquam vehiculis iter facere coepi, gravissimis aestibus atque etiam febriculis vexatus Pergami substiti</latin>
+		<english>Although I experienced a very favourable journey as far as Ephesus, Master, moving on from there, after I began to travel in land vehicles, I was troubled by the extreme heat and even by a small fever, and so I stayed for a while at Pergamum</english>
+		<notes>
+			<title>Where Pliny is (Turkey) can reach up to 43 degrees celcius!</title>
+			<point><main>saluberrimam, gravissimis: </main><text>Pliny sets up a strong contrast using these superlatives - very healthy/favourable to ver oppresive - this adds drama to his description</text></point>
+			<point><main>febriculis vexatus: </main><text>(Hindered by a small/little fever) The deminutive form of the noun (febricum - fever) shows that Pliny wants Trajan to see him as strong and capable. Although, this 'little fever' was probably quite serious, otherwise Pliny wouldn't mention it</text></point>
+			<point><main>Pergamum: </main><text>A city a couple hundred miles above Ephesus (in Turkey)</text></point>
+		</notes>
+	</line>
+	<line>
+		<number>2</number>
+		<latin>rursus, cum transissem in orarias naviculas, contrariis ventis retentus aliquanto tardius quam speraveram, id est XV Kal Octobres, Bithyniam intravi</latin>
+		<english>When I had crossed over to small coastal boats, I was again detained by contrary winds and I entered Bithynia somewhat later than I had hoped (17th of September)</english>
+		<notes>
+			<point><main>cum transissem: </main><text>(when crossed over) Pliny tries to escape the 'oppressive heat'. The winds may be favourable compared to it. It is certainly cooler out at sea with the breeze than on land</text></point>
+			<point><main>Roman dates: </main><text>Roman dates are VERY different to ours. The Roman date 'XV Kal Octobres' is the date '16th September'. However, literally, it means '15days before the kalends of October'. See our page on Roman Dates (link at top of page) for more</text></point>
+		</notes>
+	</line>
+	<line>
+		<number>3</number>
+		<latin>non possum tamen de mora queri, cum mihi contigeritm quod erat auspicatissimum, natalem tuum in provincia celebrare</latin>
+		<english>However, I am not able complain about the delay but it meant for me something which was very lucky because it meant for me to celebrate your birthday in the province</english>
+		<notes>
+			<title>Please note that we have translated this line very close to the actual latin, not the would-be english equivalent</title>
+			<point><main>non possum quer: </main><text>(I can't complain) He definatly doesn't want Trajan to thick that what he said is a whinge (a complaint)</text></point>
+			<point><main>auspicatissimum: </main><text>Very fortunate in a quasi-religious way (the Gods approve). The superlative form stresses how eager Pliny is to show respect to the Emperor. Also, he turns a negative (lateness) into a positivem which shows strong (growth mindset) attitude</text></point>
+		</notes>
+	</line>
+	<line>
+		<number>4</number>
+		<latin>Nunc rei publicae Prusensium impendia, reditus, debitores excutio; quod ex ipso tractatu magis ac magis necessarium intellego</latin>
+		<english>Now I am investigating (shaking out) the expenses, the revenue and the debtors among the people of the city of Prusa; and from this procedure (dragging out) I appreciate more and more just how necessary this is</english>
+		<notes>
+			<point><main>nunc: </main><text>(now) Pliny is keen to show that he is getting on with the job and wasting no time whatsoever. No settling in period necessary, gets straight down to buisness, even after a rough, tiring journey and a new land.</text></point>
+			<point><main>executio: </main><text>'investigate' but really means 'shake out the truth' - Pliny would have to be quite a tough guy to get to the bottom of people's finances in a town where he is not known.</text></point>
+			<point><main>impendia: </main><text>(expenses) Pliny is investigating the things for which politicians/town councillors are claiming money for as part of their professional duties - EG: if thety where travelling somewhere for their duties, the government would pay for their travel/inns. Unaviodable travel, fair. Duck ponds, not fair</text></point>
+			<point><main>reditus: </main><text>(revenue/returns) The Inland Revenue controls how much tax people owe. Pliny is likely investigating a) how much tax is owed by everyone and b) who is avoiding payment</text></point>
+			<point><main>debitores: </main><text>(debtors) People owing money to eachother, NOT the government. Pliny might have to arbitrate civil disputes about money owed.</text></point>
+			<point><main>tractatu: </main><text>literally 'dragging the truth out of people' (comes from the verb trahere): this is an indicationof what kind of work Pliny is doing. People may be reluctant to share their financial details with him, and he may need to put pressure on them</text></point>
+		</notes>
+	</line>
+	<line>
+		<number>5</number>
+		<latin>Multae enim pecuniae variis ex causis a privatis detinentur; ...</latin>
+		<english>For many payments of money are being held back for various causes by private individuals; ...</english>
+		<notes>
+			<point><text>The money is not being payed properly in taxes</text></point>
+			<point><main>multae: </main><text>(many) highlights scale of the problem</text></point>
+			<point><main>variis ex causis: </main><text>(various causes) Suggests that Pliny will have a difficult job surveying all the different types of financial irregularity</text></point>
+		</notes>
+	</line>
+	<line>
+		<number>6</number>
+		<note>Continuation of the line above</note>
+		<latin>... praeterea quaedam minime legitimis sumptibus erogantur.</latin>
+		<english>Moreover, certain amount of money are being paid out for expenses minimally legitimate</english>
+		<notes>
+			<point><main>[whole sentence above]: </main><text>back in 2014 a huge fuss was made by the Daily Telegraph about english MPs claiming expenses that were not legitimate (EG: duck ponds). This sounds familiar...</text></point>
+			<point><main>minime legitimis sumptibus: </main><text>(expenses minimally legitimate) The use of 'minime' (minimally) is to add some rheutorical emphasis - here, to supply a tone of shock/disappointment</text></point>
+		</notes>
+	</line>
+	<line>
+		<number>7</number>
+		<latin>Haec tibi domine, in ipso ingressu meo scripsi.</latin>
+		<english>I have put this in writing for you, master, at the very outset of my govenorship</english>
+		<notes>
+			<point><main>[whole sentence above]: </main><text>Pliny here is at his most humble and obedient</text></point>
+			<point><main>in ipso ingressu meo scripsi: </main>Right at the outset of his period of govenorship - showing Trajan that he is getting even the finest details ver quickly and wasting no time at all.</point>
+		</notes>
+	</line>
+</page>

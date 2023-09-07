@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+	<title>Section 6 Livy: Hannibal Crosses The Alps</title>
+	<doclinks>
+		<link>
+			<url>s7.xml</url>
+			<text>Hannibal crosses the Alps: Section VII</text>
+		</link>
+	</doclinks>
+	
+	<line>
+		<number>1</number>
+		<latin>elephanti sicut per artas vias magna mora agebantur, ita tutum ab hostibus quacumque incederent, quia insuetis aedeundi propius merus erat, agmen praebat. nono die in iugum Alpium perventum est...</latin>
+		<english>The elepnats, although they were being lead through narrow paths with great delay, were keeping the column of march safe from the enemyies wherever they went because there was a fear of approaching near to them for those unused to them. On the ninth day they had reached the summit of the Alps.</english>
+		<notes>
+			<point>
+				<main>Diadvantage of bringing elephants: </main>
+				<text>They are huge animals on narrow paths (artas vias) which makes progress very slow. Also, the elephants are not in their natural terrain (flat, hot desert) and may be scared</text>
+			</point>
+			<point>
+				<main>Advantages of bringing elephants: </main>
+				<text>The enemy (the Romans) are scared of elephants and are less likely to attack. The elephants are very strong and may be carrying men/baggage.</text>
+			</point>
+			<point>
+				<main>Impersonal verb (perventum est): </main>
+				<text>Instead of the perfect active "pervenerunt" often a Roman writer will use the impersonal perfect "the destination was reached [by them]". The effect of this is to sound more objective/detached</text>
+			</point>
+			<point>
+				<main>Time expression: </main>
+				<text>Time how long -> accusative (for x years); Time at which -> ablative (on x day). For 8 days the soldiers have been marching through this hostile terrain. They will be very tired and probably stressed from the hazards</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>2</number>
+		<latin>biduum in iugo stativa habita fessisque labore ac pugnando quies data militibus</latin>
+		<english>They halted for two days on the summit and rest was given to the soldiers who were exhausted from their hard work from combat;</english>
+		<notes>
+			<point>
+				<main>pugnando: </main>
+				<text>This is a gerund. A gerund is a verbal noun e.g. walk -> walking</text>
+			</point>
+			<point>
+				<main>Quies data: </main>
+				<text>Hannibal knows the limit of his men and shows good leadership by giving them proper break.</text>
+			</point>
+			<point>
+				<main>Stativa habita: </main>
+				<text>The verbal phrase meaning a "camp was set up"</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>3</number>
+		<latin>iumentaque aliquot, quae prolapsa in rupibus erant, sequendo vestigia agminis in castra pervenere</latin>
+		<english>Some baggage animals which had fallen among the rocks, by following the column of march, arrived at camp.</english>
+		<notes>
+			<point>
+				<main>prolapsa erant: </main>
+				<text>All compounds of this verb are deponent. labor labi lapsus   fall. Pro = forward</text>
+			</point>
+			<point>
+				<main>Iumenta (baggage animals): </main>
+				<text>The Carthaginian soldiers would be very happy/relieved to see the animals finally arrive with their gear</text>
+			</point>
+			<point>
+				<main>Sequendo: </main>
+				<text>This is another gerund. Livy seems to like them.</text>
+			</point>
+		</notes>
+	</line>
+</page>

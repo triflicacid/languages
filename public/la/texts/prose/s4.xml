@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+	<title>Section 4 Caesar :: A Difficult Landing (2)</title>
+	<doclinks>
+		<!-- Document LInks to other pages -->
+		<link> <!-- Each link will be surrounded by <link> -->
+			<url>s5-text.xml</url>
+			<text>A difficult landing (3)</text>
+		</link>
+	</doclinks>
+	
+	<line>
+		<number>1</number>
+		<latin>At barbari, consilio Romanorum cognito praemisso equitatu et essedariis, quo plerumque genere in proeliis uti consuerunt, reliquis copiis subsecuti nostros navibus egredi prohibebant</latin>
+		<english>But the barbarians, with the plan of the Romans having been found out, with the cavalry and charioteers sent in advance, in which most were accustomed to use in battles, closely followed by the rest of their forces, tries to prevent our troops from disembarking</english>
+		<notes>
+			<point>
+				<main>barbari: </main>
+				<text>a term of cultural abuse, it is onomatopoeic (like "blah blah blah" sound of foreign language) and means "thos who talk foreign" - the Romans are not interested in your culture, except to find out how to conquer you</text>
+			</point>
+			<point>
+				<main>consilio cognito: </main>
+				<text>this is one of many Ablative Absolutes (with the plan having been found out) - Caesar and the Romans will have to adapt their approach and show flexibility</text>
+			</point>
+			<point>
+				<main>uti consuerunt: </main>
+				<text>Caesar knows the strategies that the "barbari" are likely to employ. He is well-informed by his Intelligence ('I' because it is millitary intelligence) and has studied his enemy</text>
+			</point>
+			<point>
+				<main>nostros: </main>
+				<text>(our men) - hanging adjective</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>2</number>
+		<latin>erat ob has causas summa difficultas, quod naves propter magnitudinem nisi in alto constitui non poterant, ...</latin>
+		<english>This caused great difficulty for the following reasons because of the size of the (Romans') ships, they could not be moored except in deep water, ...</english>
+		<notes>
+			<point>
+				<main>ob has causas: </main>
+				<text>these reasons - Caesar is providing more than one description. This is an analysis of the advantages/disadventages of approaches to battle. He is a scientific writer</text>
+			</point>
+			<point>
+				<main>proper magnitudinem: </main>
+				<text>the ships cannot be moored next to the shore because they are huge battleships and their keels need to sit in deep water. The boats are powerful and carry many troops, but have a disadvantage</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>3</number>
+		<latin>... militibus autem ignotis locis, impeditis manibus, magno et gravi onere armorum oppressis simul ET DE NAVIBUS DESILIENDUM ET IN FLUCTIBUS CONSISTENDUMBET CUM HOSTIBUS ERAT PUGNANDUM, ...</latin>
+		<english>However, with the soldiers having been faced with unknown locations, with their hads impended and weighed down by big and heavy weight of equipment AND THEY HAD TO JUMP DOWN FROM THE BOAT AND HAD TO KEEP THEIR FOOTING IN THE WATER AND HAD TO FIGHT THE ENEMY, ...</english>
+		<notes>
+			<title>The advers situation of the soldiers is shown by:</title>
+			<point>
+				<main>The first triad (lowercase) </main>
+				<text>shows how the soldiers are baing challenged. The triad is amplified to the third term</text>
+			</point>
+			<point>
+				<main>magno et gravi: </main>
+				<text>example of verbal redundancy - two words mean the same, we don't need them both. Caesar includes both to emphasise the predicament of the troops</text>
+			</point>
+			<point>
+				<main>The second triad (UPPERCASE) </main>
+				<text>involves three gerundives, which feature the letters "nd" and express n obligation. The third term is the most impactful</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>4</number>
+		<latin>... cum illi aut ex arido aut paulum in aquam progressi, omnibus membris expeditis, notissimis locis, audacter tela conicerent et equos insuefactos incitarent.</latin>
+		<english>... the barbarians, having progressed from dry land a little bit into the water, with their limbs free, with a location known to them, were throwing their javelins confidently and were encouraging their horses which were used to to this kind of battle.</english>
+		<notes>
+			<title>Advantage of the celts (barbarians) is shows by:</title>
+			<point>
+				<main>"arido" and "paulum in equam": </main>
+				<text>the water is not a problem for them</text>
+			</point>
+			<point>
+				<main>"membris expeditis" (limbs free): </main>
+				<text>opposite of the Romans. Given dry land and presumablky baggage animals, they can organise their weapons easily and keep their limbs (hands) free</text>
+			</point>
+			<point>
+				<main>"locis" are now not "ignotis", are now "notissimis", </main>
+				<text>and the advantage (known location/land) is further emphasised by the superlative form of this adjective</text>
+			</point>
+			<point>
+				<main>The result is </main><text>that they can launch an attack "audacter" (boldy/confidently)</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>5</number>
+		<latin>Quibus rebus nostri perterriti atque huius omnino generis pugnae imperiti, non eadem alacritate ac studio quo in pedestribus uti proeliis consuerant utebantur.</latin>
+		<english>Our men, terrified by these conditions and completely inexperienced in this type of fighting, were not employing the same keeness/attitude as they were used ti show in battles on dry land</english>
+		<notes>
+			<point>
+				<main>The lack of familiarity with this type of warfare </main><text>has affected the "alacritas" of the legionary infantry. They do not fight with the usual eagerness. caesar notes this scientific interest</text>
+			</point>
+			<point>
+				<main>"alacritate ac studio": </main>
+				<text>basically mean the same so adds weight to the narrative</text>
+			</point>
+		</notes>
+	</line>
+</page>

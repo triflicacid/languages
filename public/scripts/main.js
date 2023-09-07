@@ -12,6 +12,10 @@ const codes = {
         name: "Swedish",
         lang: "sv-SE"
     },
+    "la": {
+        name: "Latin",
+        lang: "it-IT"
+    },
 };
 
 const COUNTRY_CODE = (function() {

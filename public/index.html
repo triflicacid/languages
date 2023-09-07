@@ -17,10 +17,16 @@
 
         <p><a href="speak.html">Speak A Langauge</a></p>
         <br>
-
-        <p><a href="it/">Italian</a></p>
-        <p><a href="sv/">Swedish</a></p>
     </div>
+
+    <script type="text/javascript">
+        const centre = document.getElementsByClassName("centre")[0];
+        for (const code in codes) {
+            if (code !== "gb") {
+                centre.insertAdjacentHTML("beforeend", `<p><a href="${code}">${codes[code].name}</a></p>`);
+            }
+        }
+    </script>
 </body>
 
 </html>

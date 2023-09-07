@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+	<title>Section 8 Livy: Hannibal Crosses The Alps</title>
+	<doclinks>
+		<link>
+			<url>s7.xml</url>
+			<text>Hannibal crosses the Alps: Section VII</text>
+		</link>
+		<link>
+			<url>s9.xml</url>
+			<text>Hannibal crosses the Alps: Section IX</text>
+		</link>
+	</doclinks>
+	
+	<line>
+		<number>1</number>
+		<latin>procedere inde agmen coepit iam nihil ne hostibus quidam praeter parva furta per occasionem temptanibus</latin>
+		<english>From there the column of march began to procede with the enemy not even tryinf to attack them except from small sneaky attacks (raids)</english>
+		<notes>
+			<point>
+				<main>furtive: </main>
+				<text>secretive/sneaky - From "fur" meaning 'thief'</text>
+			</point>
+			<point>
+				<main>praeter parva furta: </main>
+				<text>these are "guerilla" tactics, wearing the enemy down without a big, open fight. See fightinf in Vietnam, Northen Island. Here, the Latin words feature plosive consonants reflectibg the frequent but frustrated attacks.</text>
+			</point>
+			<point>
+				<main>hostibus temptantibus: </main>
+				<text>this is a Present Participle Ablative Absolute (events happening at the same time)</text>
+			</point>
+			<point>
+				<main>per occasionem: </main>
+				<text>the initiative is not with the enemy who are waitying for favourable opportunities to attack, not creating them</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>2</number>
+		<latin>ceterum iter multo quam in adscensu fuerat - ut pleraque Alpium ab Italia sicut breviora ita arrectiora sunt - difficilius fuit;</latin>
+		<english>Then the journey was much more difficult than it had been on the way down - for most of the paths on the Italina side are shorter, so also steeper -</english>
+		<notes>
+			<point>
+				<main>difficilius: </main>
+				<text>comparative adjective neuter "easier" (also the comparative abverb)</text>
+			</point>
+			<point>
+				<main>sicut  breviora ita arrectiora: </main>
+				<text>Livy links these comparative adjectives to great effect - the paths down are shorter (yay!!) but steeper (boo...) which is dangerous</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>3</number>
+		<latin>omnis enim ferme via praeceps, angusta, lubrica erat, ut neque sustinere se ab lapsu possent nec qui paulum titubassent haerere adflicti vestigio suo, aliique super alios et iumenta in homines occiderent</latin>
+		<english>Almost all of the paths were steep, narrow and slippery so they were not able to stop themselves from falling nor those who had stumbled were able to grab on, having lost their foothold, some falling over others and the baggage animals were falling onto the men</english>
+		<notes>
+			<point>
+				<main>praeceps, angusta, lubrica: </main>
+				<text>adyndetic triad (steep, narrow, slippery)</text>
+			</point>
+			<point>
+				<main>a-syn-deton: </main>
+				<text>withour having linking words (e.g. no "ands"). THe extra words have been taken out allowing Livy to juxtapose these three adjectives and thereby emphasise the danger of the path</text>
+			</point>
+			<point>
+				<main>sibilance: </main>
+				<text>The repeated "s" sound in the first of these lines reflects the sound of lots of mini-landslides as the loose surface gives way beneath their feet</text>
+			</point>
+			<point>
+				<main>occiderent: </main>
+				<text>this verb means "fall" but also "kill": men were tumbling down the slope then being crushed to death bt the falling baggage animals - chaotic and terrifying</text>
+			</point>
+			<point>
+				<main>alii, alios: </main>
+				<text>polyptoton - different forms of the same verb repeated. Alii and alios are juxtaposed to highlight the chaotic mixture of tumbling men and animals</text>
+			</point>
+			<point>
+				<main>Possent &amp; occiderent: </main>
+				<text>subjunctive verbs - "ut" means "so that" and is usually followed by a subjunctive to form a 'resultant clause'. x happend so y happened.</text>
+			</point>
+		</notes>
+	</line>
+</page>

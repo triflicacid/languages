@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Kalam');
+body {
+	font-family: 'Kalam';
+	font-size: 15px;
+  background-image: 
+    linear-gradient(0deg, transparent 5em, rgba(255,0,0,0.2) 0, transparent 5.1em), 
+    linear-gradient(rgba(0,0,255,0.3) 1px, transparent 0);
+  background-size: 100% 2em;
+}
+.br_1 {
+	font-weight: bold;
+	font-size: 1.3em;
+	color: red;
+}
+.br_2 {
+	font-weight: bold;
+	font-size: 1.3em;
+	color: mediumblue;
+}
+div.line {
+	border: 2px solid black;
+	padding: 5px;
+	margin-bottom: 5px;
+	background: rgba(255,255,255,0.6);
+}
+
+.line_number {
+	border-radius: 20px;
+	border: 1px solid red;
+	color: red;
+	font-weight: bold;
+	font-size: 150%;
+	padding: 4px;
+}
+
+.line_note {
+	color: crimson;
+	font-style: italic;
+	margin-left: 10px;
+}
+
+.latin {
+	color: purple;
+	font-weight: bold;
+	font-size: 110%;
+}
+
+.eng {
+	color: mediumblue;
+	font-style: italic;
+	font-size: 104%
+}
+
+a {
+	color: orange;
+	font-style: italic;
+	text-decoration: dotted underline;
+}
+a:hover {
+	color: red;
+	text-decoration: solid underline;
+}

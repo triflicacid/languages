@@ -10,6 +10,12 @@ body[data-code="it"] {
     --text-color: white;
 }
 
+body[data-code="la"] {
+    --primary-color: #472178;
+    --secondary-color: #a50505;
+    --text-color: white;
+}
+
 body[data-code="sv"] {
     --primary-color: #F5C806;
     --secondary-color: #006AA7;

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+	<title>Section 3 Caesar :: A Difficult Landing (1)</title>
+	<doclinks>
+		<!-- Document LInks to other pages -->
+		<link> <!-- Each link will be surrounded by <link> -->
+			<url>s4-text.xml</url>
+			<text>A difficult landing (2)</text>
+		</link>
+	</doclinks>
+	
+	<line>
+		<number>1</number>
+		<latin>Hunc ad egrediendum nequaquam idoneum locum arbitratus, dum reliquae naves eo convenirent ad horam noram in ancoris exspectavit</latin>
+		<english>Having considered that this place for disembarking was not ideal, he waited on anchors until the 9th hour (~3pm) until the other ships could gather there</english>
+		<notes>
+			<title>(First 3 points) What does this show about Caesar's leadership?</title>
+			<point>
+				<main>reliquae naves: </main>
+				<text>Caesar is thinking about the fleet as a whole. This shows responsible/practical leadership</text>
+			</point>
+			<point>
+				<main>Waiting until the 9th hour: </main>
+				<text>this shows great patience as he waits for conditions to be favourable. This also shows that he is sensible</text>
+			</point>
+			<point>
+				<main>arbitratus: </main>
+				<text>Caesar is using Judgment, carefully thinking through the problem of making a good landing. And a perfectionist - not prepared to go ahead until conditions are idoneum (ideal)</text>
+			</point>
+			<point>
+				<main>egrediendum nequaquam idoneum locum: </main>
+				<text>The m's could indicate his hesitation on the geography (mmmmmm...)</text>
+			</point>
+			<point>
+				<main>9th hour </main>
+				<text>from sunrise ("ad horam nonam") - around 3pm</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>2</number>
+		<latin>Interim, legatis tribunisque militum convocatis, et quae ex Voluseno cognosset et quae fieri vellet ostendit; monuitque ad nutum et ad tempus omnes res ab iis administrarentur</latin>
+		<english>In the meantime, having called together the legates and the millitary tribunes, he showed to them both what he had learnt from Volusenus and what he wanted to be done; he advised them that all things should be donw to the nod and on time</english>
+		<notes>
+			<point>
+				<main>Volusenus: </main>
+				<text>he has sent scouts to gather intel, and now shares that info. Methodical, strategic and clever</text>
+			</point>
+			<point>
+				<main>ostendit: </main>
+				<text>this ('shows') suggests more clarity than dixit (told/said) - he wants the details to be clearly understood. He probably used a millitary chessboard to illustrate</text>
+			</point>
+			<point>
+				<main>What he wanted to happen: </main>
+				<text>This is concise, direct and forceful - he wants his orders carried out properly, not debated</text>
+			</point>
+			<point>
+				<main>ad nutum (to the nod): </main>
+				<text>This is a small gesture of assent, but it carries huge authority. Jupiter (Zeus) communicates his decisions in this way (NOTE: CAESAR DOES NOT THINK HE IS JUPIUTER!!). They have to wait for his permission</text>
+			</point>
+			<point>
+				<main>Why might it be especially important to respond to orders quickly in a sea battle (ad tempus)? </main>
+				<text>The conditions at sea may change quickly and dramatically. E.g. wind direction, water currents - have a big impact on strategy</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>3</number>
+		<latin>His dismissis, et ventum et aestum uno tempore nactus secundum, dato signo et sublatis ancoris, circiter milia pasuum septem ab eo loco progressus aperto ac plano litore naves constituit</latin>
+		<english>With these men having been dismissed, and having gained a wind/tide at one time that were favourable, with the signal having been given and the nachors having been raised, advanced about 7,000 paces (7 miles) and drew up his ships on a flat and open beach</english>
+		<notes>
+			<point>
+				<main>Participles: </main>
+				<text>dismissis, nactus, dato, sublatis, progressus are all participles; this allows Caesar to pack more action into the sentence in a more concise &amp; direct way</text>
+			</point>
+			<point>
+				<main>secundum (favourable): </main>
+				<text>this is so important (that the wind/tide are favourable) that the term is held until the end of the clause</text>
+			</point>
+			<point>
+				<main>date signo at sublatis ancoris: </main>
+				<text>This succession of Ablative Absolutes shows a methodical approach - everything is done in proper order</text>
+			</point>
+			<point>
+				<main>7,000 paces (7 miles): </main>
+				<text>Caesar likes to record accurate detail in order to provide an objective account. "circiter" (roughly) because the measurment has to be made at sea</text>
+			</point>
+			<point>
+				<main>"aperto ac plano" (flat and open): </main>
+				<text>this is a much better place to land, and Caesars patience/reconnaissance has paid off</text>
+			</point>
+		</notes>
+	</line>
+</page>

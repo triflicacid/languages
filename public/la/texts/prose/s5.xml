@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+	<title>Section 5 Caesar :: A Difficult Landing (3)</title>
+	<doclinks>
+		<!-- Document LInks to other pages -->
+		<link> <!-- Each link will be surrounded by <link> -->
+			<url>s4-text.xml</url>
+			<text>A difficult landing (3)</text>
+		</link>
+	</doclinks>
+	
+	<line>
+		<number>1</number>
+		<latin>Atque nostris militibus cunctantibus, maxime propter altitudinem maris, qui decimae legionis aquilam ferebat, contestatus deos, ut ea re legioni feliciter eveniret, "desilite," inquit, "milites, nisi vultis aquilam hostibus prodere: ego certe meum rei publicae atque imperatori officium praestitero."</latin>
+		<english>And while our soldiers where hesitating, mostly due to the deep water, the eagle bearer of the 10th legion, having called upon the gods in the hope that the situation may turn out favourably for the legion, yelled, "Jump down, men, unless you want to betray your eagle to the enemy; I myself, at least, will fufill my duty to the republic and to our commander."</english>
+		<notes>
+			<point>
+				<main>nostris militibus cunctantibus: </main>
+				<text>a present participle ablative absolute</text>
+			</point>
+			<point>
+				<main>Because of the water: </main>
+				<text>The implication of Caesar's comment is that the hesitation was nothing to do with courage</text>
+			</point>
+			<point>
+				<main>The aquilifer: </main>
+				<text>the soldier who has the serious responsibility of carrying the eagle of Jupiter (Zeus) into battle</text>
+			</point>
+			<point>
+				<main>having prayed to the gods: </main>
+				<text>the religious contract is that if the Romans revere the gods and show them respect, the gods will protect them. This permeated into everything they did.</text>
+			</point>
+			<point>
+				<main>"Eagle lost, honour lost": </main>
+				<text>Protection of the eagle was a way of showing respect to Jupiter. The legion would protect the eagle at all costs, and to lose it to the enemy was an ultimate shame.</text>
+			</point>
+			<point>
+				<main>"ego certe meum": </main>
+				<text>I/me - the focus is on leadership by example, and the aquilifer is encouraging the soldiers to follow his example if they do not wish to disgrace the legion</text>
+			</point>
+			<point>
+				<main>The republic: </main>
+				<text>Republic = Not-dictatorship. This represents the political values of Rome. We aren't slaves to a king, but members of a more democratic system (but in practice not really)</text>
+			</point>
+			<point>
+				<main>imperator - "commander": </main>
+				<text>In this period of time, Rome was a republic, so did not have Emperors.</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>2</number>
+		<latin>hoc cum voce maga dixisset, se ex navi proiecit atque in hostes aquilam ferre coepit.</latin>
+		<english>When he had spoken these words in a loud voice, he threw himself down from the ship and began to carry the eagle towards the enemy.</english>
+		<notes>
+			<point>
+				<main>voce magna: </main>
+				<text>the aquilifer make this speech "with a great/loud voice" because he is confident in his values. He believes in Rome, and he wants to server the Republic</text>
+			</point>
+			<point>
+				<main>Leading by example: </main>
+				<text>he doesn't step carefully out of the ship, he throws himself with energy (proiecit se) at the enemy, and this inspiires the rest if the troops.</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>3</number>
+		<latin>tum nostri cohortati inter se, ne tantum dedecus admitteretur, universi ex navi desiluerunt.</latin>
+		<english>Then our men, encouraged not to commit such a serious disgrace, all leapt from the ship together.</english>
+		<notes>
+			<point>
+				<main>nostri cohortati inter se: </main>
+				<text>This shows teamwork</text>
+			</point>
+			<point>
+				<main>inter se, universi: </main>
+				<text>this vocab emphasises the way that the aquilifers example has galvanised the troops - bought them together</text>
+			</point>
+			<point>
+				<main>"tantum" intensified with "dedecus": </main>
+				<text>the disgrace of loosing the eagle is highlighted by "tantum"</text>
+			</point>
+			<point>
+				<main>ex navi: </main>
+				<text>the exact same words show how the troops copy the actons of the brave eagle-bearer</text>
+			</point>
+			<point>
+				<main>The army is divided into cohorts </main>
+				<text>meaning "con" (together) and "hortari" (to encourage) --&gt; encourage eachother</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>4</number>
+		<latin>hos item ex proximis navibus cum conspexissent, subsecti hostibus adpropinquarunt.</latin>
+		<english>In the same way, when those from the nearest ships caught sight of these men, they duly followed suit and made for the enemy.</english>
+		<notes>
+			<point>
+				<main>The example produces brave behaviour: </main>
+				<text>The "hos" refers to the men on the aquilifers ship. Then the men on other ships see the behaviour and follow suit.</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>5</number>
+		<latin>nostri, simul in arido constiterunt, suis omnibus consecutis, in hostes impetum fecerunt atque eos fugam dederunt; neque longius prosequi, quod equites cursum tenere atque insulam capere non potuerant.</latin>
+		<english>As soon as our men stood firm on dry land, with all their comrades following, they made an attack upon the enemy and put them to flight, but they were not able to pursue them very far because the cavalry had not been able to hold their course at sea and had not reached the island.</english>
+		<notes>
+			<point>
+				<main>Familiar fighting conditions now: </main>
+				<text>they have dealt with the disembarkation problem, and are now on land which they favour for their style of fighting.</text>
+			</point>
+			<point>
+				<main>"con": </main>
+				<text>this repeated prefix suggests togetherness - the legion sticking together will win. Divided lines will get flanked.</text>
+			</point>
+			<point>
+				<main>neque longius prosequi potuerunt: </main>
+				<text>("but they were not able to pursue them very far"). However, the Romans were unable to press their advantage, due to the fact that the cavalry had been able to reach Britain due to weather at sea, so they could not pursue the enemy.</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>6</number>
+		<latin>hoc unum ad pristinam fortunam Caesari defuit.</latin>
+		<english>Caesar lacked this one thing which contrasted with his pervious good fortune.</english>
+		<notes>
+			<point>
+				<main>Hoc unum defuit: </main>
+				<text>"this one thing" - Caesar states this as if it were a small problem, but it is a huge difficulty. If the enemy can successfully retreat, they live to fight again. But Caesar does not state this dramatically - he is concise, calm, and writes in the same way he commands</text>
+			</point>
+		</notes>
+	</line>
+</page>

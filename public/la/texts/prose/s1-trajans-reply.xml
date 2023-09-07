@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+	<title>Pliny Section 1 :: Trajan's Reply to Pliny's Letter</title>
+	<doclinks>
+		<link>
+			<url>s1-plinys-letter.xml</url>
+			<text>See Pliny's Letter He Sent To Trajan</text>
+		</link>
+	</doclinks>
+	<line>
+		<number>1</number>
+		<latin>recte renuntiasti, mi Secunde carissime</latin>
+		<english>You have reported to me as you should (RECTE), my very dear friend</english>
+		<notes>
+			<point><main>mi carissime: </main><text>The superlative form of the adjective `dear` (very dear) indicates a very close relationship between Pliny and the Emperor</text></point>
+		</notes>
+	</line>
+	<line>
+		<number>2</number>
+		<latin>Pertinet enim ad animum meum, quali itinere provinciam pervenias</latin>
+		<english>for it is of interest to my mind, with what type (quality) of journey you are reaching your province</english>
+		<notes>
+			<point><main>pertinet ad animum meum: </main><text>Repeating the wording of Pliny's letter, he assures Pliny that he does care about his journey</text></point>
+			<point><main>quali: </main><text>(of what kind) The Emperor is concerened not just with the fact that Pliny got there, but what kind of journey he had. Mabye Trajan wants to make such a journey himself, or mabye he wants to know the details of ease/difficulty/conditons to travel so he can apply it to EG: troop movements</text></point>
+		</notes>
+	</line>
+	<line>
+		<number>3</number>
+		<latin>Prudenter autem constituis iterim navibus, interim vehiculis uti, prout loca suaserint</latin>
+		<english>You have decided wisely to use somtimes boats, sometimes land behicles, just as the places have recommended</english>
+		<notes>
+			<point><main>recte, prudenter: </main><text>(rightly, wisely) The Emperor shows approval of Pliny's actions - this will please Pliny and reassert the Emperor's authority. Trying to be friendly yet authoritative. This is also the second time Trajan has been pleased by Pliny's actions (1: RECTE)</text></point>
+			<point><main>loca suaserint: </main><text>(as the places recommend) Pliny is being led by the demands of the Geography; this shows that he is an intelligent traveler, and flexible with travelling. This flexibility in travel may well translate into flexibility in governing (he is travelling to his province)</text></point>
+		</notes>
+	</line>
+</page>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+	<title>Section 11 Livy: Hannibal Crosses The Alps</title>
+	<doclinks>
+		<link>
+			<url>s10.xml</url>
+			<text>Hannibal crosses the Alps: Section X</text>
+		</link>
+	</doclinks>
+	
+	<line>
+		<number>1</number>
+		<latin>quadriduum circa rupem consumptum, iumentis prope fame absumptis; nuda enim fere cacumina sunt et, si quid est pabuli, obruunt nives.</latin>
+		<english>A four day period was used up over the rock, with the baggage animals almost completely worn down by hunger, for the peaks were very nearly bare (nude), and if there was anything of food it is covered by snow.</english>
+		<notes>
+			<point>
+				<main>Baggage animal issues: </main>
+				<text>They are starving and you have to keep them alive, or tou'll have to carry all your equipment. There is food available, but the men will have to dig it out of the snow - cost energy</text>
+			</point>
+			<point>
+				<main>Use of participles (consumptum, absumptis): </main>
+				<text>The big idea here is economy. Using participles, the Roman writer can pack a lot of information into mot namy words. THis reflects a great many areas of Roman endeavour, including the legionary use of the gladius.</text>
+			</point>
+		</notes>
+	</line>
+	
+	<line>
+		<number>2</number>
+		<latin>Inferiora valles apricos quosdam colles habent rivosque prope silvas et iam humani culta signiora loca.</latin>
+		<english>The lower areas have sunny valleys and low hills. Rivers near wooded areas and now places worthy of civilised living</english>
+		<notes>
+			<point>
+				<main>Eden-like: </main>
+				<text>Livy paints a picture of paradise which stands in strong contrast to the trials of the Alps</text>
+			</point>
+			<point>
+				<main>Contrast: </main>
+				<text>Sun (apricos), not Snow (nivos)</text>
+			</point>
+			<point>
+				<main>Contrast: </main>
+				<text>Hills (colles), not mountains (montes)</text>
+			</point>
+			<point>
+				<main>Contrast: </main>
+				<text>Rivers/woods (rivos/silvas), not peaks/cliffs</text>
+			</point>
+		</notes>
+	</line>
+	
+	<line>
+		<number>3</number>
+		<latin>ibi iumenta in pabulum missa et quies muniendo fessis hominibus data. triduo inde ad planum descendum et iam locis mollioribus et accolarum ingeniss.</latin>
+		<english>Here, the animals were allowed to graze and rest was given to the exhausted men from road building. After three days they went down into the open plain to where both the regions and the inhabitants were gentler</english>
+		<notes>
+			<point>
+				<main>mollioribus: </main>
+				<text>The comparative form of the adjective highlights the change in circumstance as the Carthaginians approach the gentle climate after the hostile nature of the summit.</text>
+			</point>
+			<point>
+				<main>Zeugma: </main>
+				<text>"gentler" ('mollioribus', verb) applies to both the location "loca" and the inhabitants "ingeniis" - mollioribus 'yokes' the two ideas together. Often the two elements of zeugma have a causal relationship - the inhabitants are nicer because the terrain is gentler. They don't need the toughness of someone living in the Alps</text>
+			</point>
+		</notes>
+	</line>
+	
+	<line>
+		<number>4</number>
+		<latin>hoc maxime modo in Italiam perventum est quinto mense a Carthagine Nova, ut quidam auctores sunt, quinto die Alpibus superatis</latin>
+		<english>In this way they arrived into Italy on the fifth month from New Carthage, as certain writer say, with the Alps having been conquered on the fifteenth day (Alps took 2 weeks)</english>
+		<notes>
+			<point>
+				<main>ut quidam auctores (as some other writers say): </main>
+				<text>this is evidence of Livy's careful research. He has consulted several sources in order to collaborate his evidence.</text>
+			</point>
+			<point>
+				<main>5 month journey: </main>
+				<text>A very long time to make a journey across the Med and highlights Hannibal's amazing determination to beat Rome</text>
+			</point>
+			<point>
+				<main>Alpibus superatis: </main>
+				<text>An ablative absolute to finish - with the Alps having been conquered. This sounds as if they;ve won a military battle/campaign, which highlights the severity of the life-or-death strugle that they have experienced and the hardships involved.</text>
+			</point>
+		</notes>
+	</line>
+</page>

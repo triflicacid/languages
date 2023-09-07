@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<page>
+	<title>Section 9 Livy: Hannibal Crosses The Alps</title>
+	<doclinks>
+		<link>
+			<url>s8.xml</url>
+			<text>Hannibal crosses the Alps: Section VIII</text>
+		</link>
+		<link>
+			<url>s10.xml</url>
+			<text>Hannibal crosses the Alps: Section X</text>
+		</link>
+	</doclinks>
+	
+	<line>
+		<number>1</number>
+		<latin>ventum deinde ad multo angustiorem rupem atque ita recis sexis ut aegre expeditus miles temptabundus manisbusque retinens virgulta ac stirpes circa eminentes demittere sese posset</latin>
+		<english>They came to a crag that is much narrower and with such steep rocks that even a lightly armed soldier, feeling with his hands onto bushes and roots sprouting around, could barely lower himself down</english>
+		<notes>
+			<point>
+				<main>ita ... ut: </main>
+				<text>A result clause helps to intensify the meaning. With SUCH steep rocks THAT ... - in this case the thing intensified is the feeling of vertigo.</text>
+			</point>
+			<point>
+				<main>expeditus miles: </main>
+				<text>(expeditionary soldiers - lightly armed soldiers) A light-armed soldier has great difficulty, so by extension the heavily-armed/baggage animals/elephants are going to really struggle.</text>
+			</point>
+			<point>
+				<main>temptabundus manibus: </main>
+				<text>The soldiers have to feel with their hands implying that they cannot even see where they're going (temptabundus - feeling (like atempt))</text>
+			</point>
+			<point>
+				<main>virgulta ac stirpes: </main>
+				<text>Hanging onto roots rather than the more desirable ladder. The "bushes and roots" give the narrative a 'wild' feel and raises the level of excitement/panic/discomfort</text>
+			</point>
+			<point>
+				<main>rupem: </main>
+				<text>(verb to burst forth/break (like in erupt)) This demonstrates the shear craginess and danger the soldiers are facing, relating to the likes of volcanoes.</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>2</number>
+		<latin>Natura locus iam ante praeceps recenti lapsu terrae in pedum mille admosum altitudines abruptus erat</latin>
+		<english>The place was already steep by nature, but with a recent slide of the earth (landslide) had been abruptly broken off to a full 1,000 feet.</english>
+		<notes>
+			<point>
+				<main>vertigo: </main>
+				<text>the nausea that sometimes accompanies being panicked and in a high place, Livy wants us to sympathise with the soldiers</text>
+			</point>
+			<point>
+				<main>natura locus iam ante praeceps: </main>
+				<text>The place was already steep by nature, BUT on top of that there has been a landslide. This really cranks up the tension.</text>
+			</point>
+		</notes>
+	</line>
+	<line>
+		<number>3</number>
+		<latin>ibi cum velut ad finem viae aquites constitissent, miranti Hannibali quae res moraretur agmen nuntiatur rupem inviam esse</latin>
+		<english>When the cavelry (horse men) had stopped as if they were at the end of the road, while Hannibal was wondering what the delay was, it was reported to him that the route was impassable.</english>
+		<notes>
+			<point>
+				<main>mirans, marantem, mirantis: </main>
+				<text>Present participle from DEPONENT mirror (to admire, wonder)</text>
+			</point>
+			<point>
+				<main>maranti Hannibali: </main>
+				<text>We are brought into the moment of Hannibal's wondering with the graphic use of the present "nuntiatur" - he immediatly wants to know what is hindering their progress.</text>
+			</point>
+			<point>
+				<main>rupem inviam: </main>
+				<text>impassable cliff - a challenge! What will Hannibal do now?</text>
+			</point>
+		</notes>
+	</line>
+</page>
