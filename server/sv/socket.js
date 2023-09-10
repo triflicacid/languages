@@ -56,7 +56,7 @@ function setupSocket(socket) {
             if (exist) {
                 socket.emit("alert", `An entry for "${data.Word}" already exists.`);
             } else {
-                const id = await db.insertIntoVocab(data.Word, data.En, data.Plural, data.Gender, data.Class, data.Cat, data.Comment);
+                const id = await db.insertIntoVocab(data.Word, data.En, data.Plural, data.Gender, data.Class, data.Tags, data.Comment);
                 socket.emit("create-word", id);
             }
         }
