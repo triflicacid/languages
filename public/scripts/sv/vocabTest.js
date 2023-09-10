@@ -1,12 +1,12 @@
 const divConfig = document.getElementById('test-config');
 const divTest = document.getElementById('test-body');
-var wordClasses, wordCategories, allWords;
+var allWords;
 const check = "&#10003;", cross = "&#10008;";
 
-const TYPE_IT_EN = 1;
-const TYPE_EN_IT = 2;
+const TYPE_SV_EN = 1;
+const TYPE_EN_SV = 2;
 const TYPE_GENDER = 3;
-const TYPE_IT_SPEECH = 4;
+const TYPE_SV_SPEECH = 4;
 
 // Populate #test-config
 function loadConfig() {
@@ -31,10 +31,10 @@ function loadConfig() {
     td = document.createElement('td');
     tr.appendChild(td);
     const selectType = document.createElement('select');
-    selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_IT_EN}">Italian &rarr; English</option>`);
-    selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_EN_IT}">English &rarr; Italian</option>`);
+    selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_SV_EN}">Swedish &rarr; English</option>`);
+    selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_EN_SV}">English &rarr; Swedish</option>`);
     selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_GENDER}">Gender</option>`);
-    selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_IT_SPEECH}">Italian from Pronunctiation</option>`);
+    selectType.insertAdjacentHTML("beforeend", `<option value="${TYPE_SV_SPEECH}">Swedish from Pronunctiation</option>`);
     td.appendChild(selectType);
 
     // Word class
@@ -42,55 +42,23 @@ function loadConfig() {
     tbody.appendChild(tr);
     tr.insertAdjacentHTML("beforeend", "<td><strong>Word Class</strong></td>");
     td = document.createElement('td');
-    const selectClass = document.createElement('select');
-    td.appendChild(selectClass);
-    selectClass.insertAdjacentHTML("beforeend", "<option value='-'>-</option>");
-    if (wordClasses) wordClasses.forEach(o => selectClass.insertAdjacentHTML("beforeend", `<option value='${o.ID}'>${o.Name}</option>`));
+    const inputClass = document.createElement('input');
+    td.appendChild(inputClass);
     tr.appendChild(td);
 
     // Word category
     tr = document.createElement("tr");
     tbody.appendChild(tr);
-    tr.insertAdjacentHTML("beforeend", "<td><strong>Word Category</strong></td>");
-    const createSelectCat = () => {
-        selectCatCount++;
-        const span = document.createElement("span");
-        selectSpan.appendChild(span);
-        if (selectCatCount !== 1) {
-            span.insertAdjacentText("beforeend", " or ");
-        }
-        const select = document.createElement("select");
-        span.appendChild(select);
-        select.insertAdjacentHTML("beforeend", `<option value='-' selected>-</option>`);
-        if (wordCategories) wordCategories.forEach(o => select.insertAdjacentHTML("beforeend", `<option value='${o.ID}'>${o.Name}</option>`));
-        const btn = document.createElement("button");
-        span.appendChild(btn);
-        btn.innerText = 'X';
-        btn.addEventListener("click", () => {
-            if (selectCatCount > 1) {
-                span.remove();
-                selectCatCount--;
-            } else {
-                select.value = '-';
-            }
-        });
-    };
+    tr.insertAdjacentHTML("beforeend", "<td><strong>Tags</strong></td>");
     td = document.createElement("td");
-    const selectSpan = document.createElement("span");
-    let selectCatCount = 0;
-    td.appendChild(selectSpan);
-    createSelectCat();
-    td.insertAdjacentHTML("beforeend", " | ");
-    const btnCreateCatSelect = document.createElement("button");
-    btnCreateCatSelect.innerText = "+";
-    btnCreateCatSelect.addEventListener("click", createSelectCat);
-    td.appendChild(btnCreateCatSelect);
+    const inputTags = document.createElement('input');
+    td.appendChild(inputTags);
     tr.appendChild(td);
 
     // Show certain columns
     tr = document.createElement('tr');
     tbody.appendChild(tr);
-    tr.insertAdjacentHTML("beforeend", "<td><strongExtra Info</strong></td>");
+    tr.insertAdjacentHTML("beforeend", "<td><strong>Extra Info</strong></td>");
     td = document.createElement('td');
     tr.appendChild(td);
     const checkboxAllowSpeak = document.createElement('input');
@@ -113,11 +81,11 @@ function loadConfig() {
     checkboxShowClass.checked = true;
     td.insertAdjacentHTML("beforeend", " | Word Class&nbsp;");
     td.appendChild(checkboxShowClass);
-    const checkboxShowCategory = document.createElement('input');
-    checkboxShowCategory.type = 'checkbox';
-    checkboxShowCategory.checked = false;
-    td.insertAdjacentHTML("beforeend", "| Word Category&nbsp;");
-    td.appendChild(checkboxShowCategory);
+    const checkboxShowTags = document.createElement('input');
+    checkboxShowTags.type = 'checkbox';
+    checkboxShowTags.checked = false;
+    td.insertAdjacentHTML("beforeend", "| Tags&nbsp;");
+    td.appendChild(checkboxShowTags);
 
     // Create
     tr = document.createElement('tr');
@@ -129,13 +97,12 @@ function loadConfig() {
     td.appendChild(btnGo);
     btnGo.innerText = 'Create Test';
     btnGo.addEventListener('click', () => {
-        const wordClass = selectClass.value === '-' ? undefined : +selectClass.value;
-        const wordCat = Array.from(selectSpan.querySelectorAll("select")).map(e => +e.value).filter(n => !isNaN(n));
+        const wordClass = inputClass.value.trim();
+        const tags = inputTags.value.split(",").map(x => x.trim()).filter(x => x);
         const test = [], count = +inputWordCount.value;
         const available = allWords.filter(o => {
-            return (wordClass === undefined ? true : o.Class.some(n => n === wordClass)) &&
-                // (wordCat.length === 0 ? true : wordCat.filter(n => o.Cat.indexOf(n) === -1).length === 0);
-                (wordCat.length === 0 ? true : o.Cat.some(c => wordCat.includes(c)));
+            return (wordClass.length === 0 ? true : o.Class.some(n => n === wordClass)) &&
+                (tags.length === 0 ? true : o.Tags.some(c => tags.includes(c)));
         });
         while (test.length < count && available.length > 0) {
             const idx = Math.floor(Math.random() * available.length);
@@ -145,12 +112,12 @@ function loadConfig() {
                 test.push(word);
             }
         }
-        populateTest(test, +selectType.value, checkboxAllowSpeak.checked, checkboxShowWords.checked, checkboxShowGender.checked, checkboxShowClass.checked, checkboxShowCategory.checked);
+        populateTest(test, +selectType.value, checkboxAllowSpeak.checked, checkboxShowWords.checked, checkboxShowGender.checked, checkboxShowClass.checked, checkboxShowTags.checked);
     });
 }
 
 // List test words
-function populateTest(words, testType, allowSpeak = true, showWords = true, showGender = true, showClass = true, showCategory = true) {
+function populateTest(words, testType, allowSpeak = true, showWords = true, showGender = true, showClass = true, showTags = true) {
     divTest.innerHTML = "";
     const table = document.createElement("table");
     divTest.appendChild(table);
@@ -160,8 +127,8 @@ function populateTest(words, testType, allowSpeak = true, showWords = true, show
     let tr = document.createElement("tr");
     thead.appendChild(tr);
     let colspan = 2;
-    tr.insertAdjacentHTML("beforeend", "<th>Italiano</th>");
-    tr.insertAdjacentHTML("beforeend", "<th>Inglese</th>");
+    tr.insertAdjacentHTML("beforeend", "<th>Svenska</th>");
+    tr.insertAdjacentHTML("beforeend", "<th>Engelsk</th>");
     if (showGender || testType === TYPE_GENDER) {
         tr.insertAdjacentHTML("beforeend", "<th>Gender</th>");
         colspan++;
@@ -170,8 +137,8 @@ function populateTest(words, testType, allowSpeak = true, showWords = true, show
         tr.insertAdjacentHTML("beforeend", "<th>Word Class</th>");
         colspan++;
     }
-    if (showCategory) {
-        tr.insertAdjacentHTML("beforeend", "<th>Word Category</th>");
+    if (showTags) {
+        tr.insertAdjacentHTML("beforeend", "<th>Tags</th>");
         colspan++;
     }
 
@@ -184,25 +151,25 @@ function populateTest(words, testType, allowSpeak = true, showWords = true, show
         let input, td;
 
         td = document.createElement("td");
-        if (allowSpeak && testType !== TYPE_EN_IT) {
+        if (allowSpeak && testType !== TYPE_EN_SV) {
             const btnSpeak = document.createElement("span");
             btnSpeak.innerHTML = "&#x1f50a;";
             btnSpeak.classList.add("link", "no-underline");
-            btnSpeak.addEventListener('click', () => speak(word.It, "it-IT"));
+            btnSpeak.addEventListener('click', () => speak(word.Word, codes.sv.lang));
             td.appendChild(btnSpeak);
             td.insertAdjacentHTML("beforeend", " &nbsp;");
         }
-        if (testType === TYPE_EN_IT || testType === TYPE_IT_SPEECH) {
+        if (testType === TYPE_EN_SV || testType === TYPE_SV_SPEECH) {
             input = document.createElement("input");
             input.type = "text";
             td.appendChild(input);
         } else {
-            if (showWords) td.insertAdjacentText("beforeend", word.It);
+            if (showWords) td.insertAdjacentText("beforeend", word.Word);
         }
         tr.appendChild(td);
 
         td = document.createElement("td");
-        if (testType === TYPE_IT_EN) {
+        if (testType === TYPE_SV_EN) {
             input = document.createElement("input");
             input.type = "text";
             td.appendChild(input);
@@ -224,29 +191,27 @@ function populateTest(words, testType, allowSpeak = true, showWords = true, show
             td = document.createElement("td");
             td.appendChild(input);
             input.insertAdjacentHTML("beforeend", `<option value=''>-</option>`);
-            input.insertAdjacentHTML("beforeend", `<option value='M'>Masculine</option>`);
-            input.insertAdjacentHTML("beforeend", `<option value='F'>Feminine</option>`);
+            input.insertAdjacentHTML("beforeend", `<option value='C'>Common</option>`);
+            input.insertAdjacentHTML("beforeend", `<option value='N'>Neuter</option>`);
             tr.appendChild(td);
         } else if (showGender) {
             td = document.createElement("td");
             let gender = "";
-            if (word.Gender === "M") gender = "Masculine";
-            else if (word.Gender === "F") gender = "Feminine";
+            if (word.Gender === "C") gender = "Common";
+            else if (word.Gender === "N") gender = "Neuter";
             td.insertAdjacentHTML("beforeend", gender);
             tr.appendChild(td);
         }
 
         if (showClass) {
             td = document.createElement("td");
-            const classNames = word.Class.map(c => wordClasses.find(C => C.ID === c).Name);
-            td.insertAdjacentHTML("beforeend", classNames.map(n => "<em>" + n + "</em>").join(", "));
+            td.insertAdjacentHTML("beforeend", word.Class.map(n => "<em>" + n + "</em>").join(", "));
             tr.appendChild(td);
         }
 
-        if (showCategory) {
+        if (showTags) {
             td = document.createElement("td");
-            const catNames = word.Cat.map(c => wordCategories.find(C => C.ID === c).Name);
-            td.insertAdjacentHTML("beforeend", catNames.map((n, i) => `<em>${n}</em>`).join(", "));
+            td.insertAdjacentHTML("beforeend", word.Tags.map((n, i) => `<em>${n}</em>`).join(", "));
             tr.appendChild(td);
         }
 
@@ -267,13 +232,13 @@ function populateTest(words, testType, allowSpeak = true, showWords = true, show
             const value = inputs[i].value.trim().toLowerCase(), word = words[i];
             let ok = false;
             switch (testType) {
-                case TYPE_IT_EN:
+                case TYPE_SV_EN:
                     // ok = word.En.some(en => en === value);
                     ok = word.En.some(en => removePunctuation(removeSpaces(en)) === removePunctuation(removeSpaces(value)));
                     break;
-                case TYPE_EN_IT:
-                case TYPE_IT_SPEECH:
-                    ok = removePunctuation(removeSpaces(word.It)) === removePunctuation(removeSpaces(value));
+                case TYPE_EN_SV:
+                case TYPE_SV_SPEECH:
+                    ok = removePunctuation(removeSpaces(word.Word)) === removePunctuation(removeSpaces(value));
                     break;
                 case TYPE_GENDER:
                     ok = word.Gender === value;
@@ -288,16 +253,16 @@ function populateTest(words, testType, allowSpeak = true, showWords = true, show
             } else {
                 let content = '';
                 switch (testType) {
-                    case TYPE_IT_EN:
+                    case TYPE_SV_EN:
                         content = word.En.map(x => "<em>" + x + "</em>").join(", ");
                         break;
-                    case TYPE_EN_IT:
-                    case TYPE_IT_SPEECH:
-                        content = "<em>" + word.It + "</em>";
+                    case TYPE_EN_SV:
+                    case TYPE_SV_SPEECH:
+                        content = "<em>" + word.Word + "</em>";
                         break;
                     case TYPE_GENDER:
-                        if (word.Gender === "M") content = "Masculine";
-                        else if (word.Gender === "F") content = "Feminine";
+                        if (word.Gender === "C") content = "Common";
+                        else if (word.Gender === "N") content = "Neuter";
                         else if (word.Gender === "") content = "(None)";
                         break;
                 }
@@ -316,32 +281,16 @@ function populateTest(words, testType, allowSpeak = true, showWords = true, show
 // Socket
 const socket = connectToSocket();
 
-var _recv = 0;
-function incRecieved() {
-    _recv += 1;
-    if (_recv === 3) socket.emit("get-words");
-}
-
-socket.on("get-word-classes", array => {
-    wordClasses = array.sort((a, b) => a.Name.localeCompare(b.Name));
-    incRecieved();
-});
-socket.on("get-word-categories", array => {
-    wordCategories = array.sort((a, b) => a.Name.localeCompare(b.Name));;
-    incRecieved();
-});
 socket.on("get-words", array => {
     allWords = array;
     allWords = allWords.map(o => {
         o.En = o.En.split(",");
-        o.Cat = o.Cat ? o.Cat.split(",").map(n => +n) : [];
-        o.Class = o.Class ? o.Class.split(",").map(n => +n) : [];
+        o.Tags = o.Tags ? o.Tags.split(",") : [];
+        o.Class = o.Class ? o.Class.split(",") : [];
         o.Gender = o.Gender || "";
         return o;
-    }).sort((a, b) => a.It.localeCompare(b.It));
+    }).sort((a, b) => a.Word.localeCompare(b.Word));
     loadConfig();
 });
 
-socket.emit("get-word-classes");
-socket.emit("get-word-categories");
 socket.emit("get-words");
